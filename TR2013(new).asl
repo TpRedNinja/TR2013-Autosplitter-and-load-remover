@@ -207,7 +207,7 @@ split
     if (old.level != current.level) // Split on level changing
     {
         string leveltransition = old.level + "_" + current.level;
-        if (settings.ContainsKey(leveltransition) && settings[leveltransition])
+        if (settings.ContainsKey(leveltransition) && settings[leveltransition] && !vars.CompletedSplits.Contains(leveltransition))
         {
             vars.CompletedSplits.Add(leveltransition);
             return true;
@@ -282,7 +282,16 @@ split
 isLoading
 {
 
-return current.cutsceneValue == 520 || current.bowAmmo == 4294967295 || current.isLoading || current.FMV;
+if(current.cutsceneValue != 8 && (current.bowAmmo == -1 || current.isLoading || current.FMV))
+{
+    return true;
+}
+else if (current.bowAmmo == -1 || current.isLoading || current.FMV)
+{
+    return true;
+}
+
+//return current.cutsceneValue == 520 || current.bowAmmo == -1 || current.isLoading || current.FMV;
 
 
 /*if (current.isLoading || (current.cutsceneValue > 8 && (current.cutsceneValue < 520 || current.cutsceneValue > 520) && old.cutsceneValue == 8))//when in a loading screen
@@ -323,121 +332,3 @@ onReset
     vars.CompletedSplits.Clear();
 
 }
-
-
-
-
-//"",
- /* Variable to store all possible level transitions in the game
-    HashSet<string> PossibleLevelTransitions = new HashSet<string> {
-    "main_menu_1",
-    "cine_chaos_beach",
-    "survival_den97",
-    "survival_den_rambotunnel",
-    "survival_den_puzzleroom",
-    "survival_den03",
-    "survival_den04",
-    "oceanvista",
-    "ac_forest",
-    "ac_bunker",
-    "ac_main",
-    "connector_acmain_to_mountainclimb_a",
-    "mountain_climb",
-    "mountain_climb_to_village_hub_connector",
-    "vh_main",
-    "vh_fisheries_connector",
-    "ct_batcave",
-    "vh_main_vh_vhmain_to_ww2_sos_01_connector",
-    "ww2_sos_01",
-    "ww2_sos_02",
-    "ww2_sos_03",
-    "ww2sos_gas_puzzle",
-    "ww2sos_map_room",
-    "to_04_connector_ww2sos_04",
-    "ww2sos_04",
-    "ww2_sos_05",
-    "slide_of_insanity",
-    "cliffs_of_insanity",
-    "vh_cliffs_to_hub_connector_a",
-    "vh_cliffs_to_hub_connector_b",
-    "ct_windchasm_connect",
-    "ct_windchasm",
-    "vh_hub_to_chasm_connector",
-    "ch_hubtochasm",
-    "chasm_entrance",
-    "ma_monastery_interior",
-    "ma_chasm_vista",
-    "ma_puzzle",
-    "ma_run_out",
-    "ma_chasm_to_hub_connector",// might be real one
-    "vh_chasm_to_hub_connector",//might be real one
-    "vh_vhmain_to_descent_connector",
-    "de_descent",
-    "de_descent_to_scav_hub_connector",
-    "sh_scavenger_hub",
-    "sh_scavenger_hub_to_well_connector",
-    "vc_well_outsource",
-    "sh_scavenger_hub_2",
-    "vc_chopshop_connector",
-    "vc_plane_chopshop",
-    "sh_scavenger_hub_to_geothermal_connector",
-    "bi_entrance",
-    "bi_ceremony",
-    "bi_pit",
-    "bi_catocombs",
-    "bi_altar_room",
-    "bi_puzzle",
-    "bi_exit",
-    "ge_01",
-    "ge_02",
-    "ge_02_a",
-    "ge_03",
-    "ge_04",
-    "ge_05",
-    "ge_06",
-    "ge_07",
-    "ge_08",
-    "tt_two_towers",
-    "tt_connector_to_rc_01_marsh",
-    "rc_01_marsh",
-    "rc_15_camp",
-    "rc_sidetomb_connector",
-    "ct_fortress_of_solitude",
-    "rc_20_wolfden",
-    "tb_skub_to_kick_the_bucket",
-    "tb_to_beach",
-    "tb_to_beach_to_beach_hub_connector",
-    "bh_beach_hub",
-    "bh_sidetomb_connector_02",
-    "vc_shockpond",
-    "sb_01",
-    "sb_02",
-    "sb_03",
-    "sb_04",
-    "sb_05",
-    "sb_15",
-    "sb_16",
-    "sb_20",
-    "sb_21",
-    "bh_sidetomb_connector_01",
-    "vc_fishery",
-    "si_05_bunker_to_research_connector",
-    "si_25_tomb",
-    "si_30_tomb_to_bh_connector",
-    "bh_beach_hub",
-    "ptboat_cine",
-    "chasm_entrance",
-    "mb_eatery",
-    "mb_readyroom",
-    "chasm_streamgall_01",
-    "mb_candlehall_combat",
-    "chasm_streamgall_02",
-    "chasm_bridge",
-    "qt_pre_stalker_arena",
-    "qt_stalkerfight",
-    "qt_hall_of_queens",
-    "qt_trial_by_fire",
-    "qt_scale_the_ziggurat",
-    "qt_zig_to_ritual_connector",
-    "qt_the_ritual"
-};*/
