@@ -282,34 +282,19 @@ split
 isLoading
 {
 
-if(current.cutsceneValue != 8 && (current.bowAmmo == -1 || current.isLoading || current.FMV))
-{
-    return true;
-}
-else if (current.bowAmmo == -1 || current.isLoading || current.FMV)
-{
-    return true;
-}
+	if(current.cutsceneValue != 8 && (current.bowAmmo == -1 || current.isLoading || current.FMV))
+	{
+    		return true;
+	} 
+	else if (current.bowAmmo == -1 || current.isLoading || current.FMV)
+	{
+    		return true;
+	} else
+	{
+   		return false;
+	}
 
-//return current.cutsceneValue == 520 || current.bowAmmo == -1 || current.isLoading || current.FMV;
-
-
-/*if (current.isLoading || (current.cutsceneValue > 8 && (current.cutsceneValue < 520 || current.cutsceneValue > 520) && old.cutsceneValue == 8))//when in a loading screen
-    {
-    return true;
-    } else  if (current.cutsceneValue == 520 && current.skippableCutscene == 0 && current.FMV)// when camrecorder cutscene is playing
-    { 
-        return true;
-    } else if (current.cutsceneValue == 520 && current.skippableCutscene == 0)//most skippable cutscenes
-    {
-        return true;  
-    } else if (current.cutsceneValue == 520)//includes cutscenes that arent pausable
-    {
-        return true;
-    } else //if all of them are false 
-    {
-        return false;
-    }*/
+	//return current.cutsceneValue == 520 || current.bowAmmo == -1 || current.isLoading || current.FMV;
 }
 
 exit
