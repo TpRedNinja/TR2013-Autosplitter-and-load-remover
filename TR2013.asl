@@ -383,7 +383,10 @@ isLoading
 	} else if (current.bowAmmo == -1 || current.isLoading || current.FMV)
 	{
 	    return true;
-	} else
+	} else if (current.cutsceneValue == 520 && (current.bowAmmo == -1 || current.isLoading == false || current.FMV == false))
+	{
+	    return true;
+	}else
 	{
 	    return false;
 	}
