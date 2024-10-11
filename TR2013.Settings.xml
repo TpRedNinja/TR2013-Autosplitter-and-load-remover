@@ -103,9 +103,9 @@
 		<Setting Id="Dr James Whitman" Label="Dr James Whitman" ToolTip="Splits during whitman death cutscene" State="false"/>
 		<Setting Id="chasm_entrance_mb_eatery" Label="Chasm Stronghold Extra 1" ToolTip="Work in progress" State="false"/>
 		<Setting Id="mb_eastery_mb_readyroom" Label="Goaliath Armor" ToolTip="Splits when entering the Goaliath Armor room" State="false"/>
-		<Setting Id="mb_readyroom_chasm_streamgall_01" Label="" ToolTip="Work in progress" State="false"/>
-		<Setting Id="chasm_streamgall_01_mb_candlehall_combat" Label="Chasm Stronghold Extra 2" ToolTip="Work in progress" State="false"/>
-		<Setting Id="mb_candlehall_combat_chasm_streamgall_02" Label="Chasm Stronghold Extra 3" ToolTip="Work in progress" State="false"/>
+		<Setting Id="mb_readyroom_chasm_streamgall_01" Label="Chasm Stronghold Extra 2" ToolTip="Work in progress" State="false"/>
+		<Setting Id="chasm_streamgall_01_mb_candlehall_combat" Label="Chasm Stronghold Extra 3" ToolTip="Work in progress" State="false"/>
+		<Setting Id="mb_candlehall_combat_chasm_streamgall_02" Label="Chasm Stronghold Extra 4" ToolTip="Work in progress" State="false"/>
 		<Setting Id="chasm_streamgall_02_chasm_bridge" Label="Bridge" ToolTip="Splits when getting to the windy bridge" State="false"/>
 		<Setting Id="chasm_bridge_qt_pre_stalker_arena" Label="Chasm Stronghold" ToolTip="Splits after crossing the bridge following the big fight." State="false"/>
 		<Setting Id="qt_pre_stalker_arena_qt_stalkerfight" Label="Chasm Shrine puzzle room" ToolTip="Splits when entering the puzzle room" State="false"/>
