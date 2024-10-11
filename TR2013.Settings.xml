@@ -1,5 +1,9 @@
 <Settings>
 	<Setting Id="Proggression" Label="Splits during progression points of the game" State="false">
+		<Setting Id="survival_den97_survival_den_rambotunnel" Label="Survival den Extra 1" ToolTip="Work in progress" State="false"/>
+		<Setting Id="survival_den_rambotunnel_survival_den_puzzleroom" Label="Survival den Extra 2" ToolTip="Work in progress" State="false"/>
+		<Setting Id="survival_den_puzzleroom_survival_den03" Label="Survival den Extra 3" ToolTip="Work in progress" State="false"/>
+		<Setting Id="survival_den03_survival_den04" Label="Survival den Extra 4" ToolTip="Work in progress" State="false"/>
 		<Setting Id="survival_den04_oceanvista" Label="Scavenger's Den" ToolTip="Complete the climbing QTE at the end of the intro." State="false"/>
 		<Setting Id="oceanvista_ac_forest" Label="Coastal Bluffs" ToolTip="Lara reaches the area where the bow is." State="false"/>
 		<Setting Id="Bow" Label="Collect the Bow" ToolTip="Lara gets the bow." State="false"/>
@@ -16,41 +20,73 @@
 		<Setting Id="vh_vhmain_to_ww2_sos_01_connector_ww2_sos_01" Label="Mountain Village" ToolTip="Splits after you current location updates to Base approach" State="false"/>
 		<Setting Id="CampFire" Label="CampFire" ToolTip="Splits during the forced camp fire before crew footage plays" State="false"/>
 		<Setting Id="CampFireAlt" Label="CampFireAlt" ToolTip="Splits during the forced camp fire during crew footage" State="false"/>
+		<Setting Id="ww2_sos_01_ww2_sos_02" Label="Spot light time" ToolTip="Splits when you get to the spot light area" State="false"/>
 		<Setting Id="ww2_sos_02_ww2sos_03" Label="Base Approach" ToolTip="Splits after lara lands in the water" State="false"/>
-		<Setting Id="MapRoom" Label="MapRoom" ToolTip="Splits during the cutscene after openning the door from maproom" State="false"/>
+		<Setting Id="ww2sos_03_ww2sos_gas_puzzle" Label="Time for puzzle room" ToolTip="splits when you enter the gas puzzle room" State="false"/>
+		<Setting Id="ww2sos_gas_puzzle_ww2sos_map_room" Label="puzzle room" ToolTip="splits when entering ambush room" State="false"/>
+		<Setting Id="MapRoom" Label="Ambush Room" ToolTip="Splits during the cutscene after openning the door from maproom" State="false"/>
+		<Setting Id="ww2sos_map_room_ww2sos_03_to_04_connector" Label="Map room" ToolTip="Splits going into the small gap" State="false"/>
 		<Setting Id="ww2sos_03_to_04_connector_ww2sos_04" Label="Mountain Base" ToolTip="Splits after exiting the Mountain Base into the snowy outside." State="false"/>
 		<Setting Id="SOS" Label="SOS" ToolTip="Splits during the cutscene afte the mini game to get the sos signal to work" State="false"/>
 		<Setting Id="ww2sos_04_ww2_sos_05" Label="Sos Signal" ToolTip="Splits after a little bit after you leave the SOS tower" State="false"/>
 		<Setting Id="ww2sos_05_slide_of_insanity" Label="Base Exterior" ToolTip="Splits after descending the communications tower and blowing up the fuel tanks." State="false"/>
 		<Setting Id="slide_of_insanity_cliffs_of_insanity" Label="Slide" ToolTip="Splits after the slide and when location updates" State="false"/>
+		<Setting Id="cliffs_of_insanity_vh_cliffs_to_hub_connector_a" Label="Cliffside Village Extra 1" ToolTip="Splits in tunnel while talking to roth" State="false"/>
+		<Setting Id="vh_cliffs_to_hub_connector_a_vh_cliffs_to_hub_connector_b" Label="Cliffside Village Extra 2" ToolTip="Splits after the forced radio convo with roth" State="false"/>
 		<Setting Id="vh_cliffs_to_hub_connector_b_vh_main" Label="Cliffside Village" ToolTip="Splits in the tunnel before reuniting with Roth for the second time." State="false"/>
 		<Setting Id="Loss" Label="Loss" ToolTip="Splits during the cutscene when you reunite with roth after cliffside village" State="false"/>
 		<Setting Id="vh_main_vh_hub_to_chasm_connector" Label="Mountain Village 2" ToolTip="Splits after sliding down the hill before raido call with Alex." State="false"/>
+		<Setting Id="vh_hub_to_chasm_connector_ch_hubtochasm" Label="Mountain Pass Extra 1" ToolTip="Work in progress" State="false"/>
+		<Setting Id="ch_hubtochasm_chasm_entrance" Label="Mountain Pass Extra 2" ToolTip="Work in progress" State="false"/>
 		<Setting Id="chasm_entrance_ma_monastary_interior" Label="Mountain pass" ToolTip="splits after the cutscene with captain jesop dying" State="false"/>
-		<Setting Id="ma_puzzle_ma_run_out" Label="Bell" ToolTip="Splits after bell cutscene" State="false"/>
+		<Setting Id="ma_monastery_interior_ma_chasm_vista" Label="Big Scary boi" ToolTip="Splits after falling down on the pile of bones" State="false"/>
+		<Setting Id="ma_chasm_vista_ma_puzzle" Label="Time for Puzzle Room" ToolTip="Splits when entering the puzzle room area" State="false"/>
 		<Setting Id="Bell Cutscene" Label="Bell Cutscene" ToolTip="Splits when Bell Cutscene plays" State="false"/>
+		<Setting Id="ma_puzzle_ma_run_out" Label="Bell" ToolTip="Splits after bell cutscene" State="false"/>
 		<Setting Id="ma_run_out_ma_chasm_to_hub_connector" Label="Chasm Monestary" ToolTip="Splits after falling from the collapsing monastary tunnel." State="false"/>
+		<Setting Id="ma_chasm_to_hub_connector_vh_vhmain_to_descent_connector" Label="Mountain Village one last time" ToolTip="Splits when leaving the area with the forced radio convo with roth after chasm monastary" State="false"/>
 		<Setting Id="vh_main_vh_vhmain_to_descent_connector" Label="Mountain Village 3" ToolTip="Splits when going down the zipline to get to waterfall before parachute " State="false"/>
+		<Setting Id="vh_vhmain_to_descent_connector_de_descent" Label="Time for water slide" ToolTip="Splits when going down the water slide" State="false"/>
+		<Setting Id="de_descent_de_descent_to_scav_hub_connector" Label="Time for Parachute" ToolTip="Splits when getting the parachute" State="false"/>
 		<Setting Id="de_descent_to_scav_hub_connector_sh_scavenger_hub" Label="Mountain Descent" ToolTip="Splits after completing the parachute QTE when entering the Shantytown." State="false"/>
 		<Setting Id="Lara Hurt" Label="Lara Hurt" ToolTip="Splits after lara looses her parachute and the cutscene starts playing" State="false"/>
 		<Setting Id="sh_scavenger_hub_sh_scavenger_hub_2" Label="Shantytown (North)" ToolTip="Splits when Lara goes through the gate to the southern part of Shantytown." State="false"/>
 		<Setting Id="sh_scavenger_hub_2_sh_scavenger_hub_to_geothermal_connector" Label="Shantytown (South) (to Geothermal Caverns)" ToolTip="Splits after leaving Shantytown to go into the Geothermal Caverns." State="false"/>
+		<Setting Id="sh_scavenger_hub_to_geothermal_connector_bi_entrance" Label="Shantytown (South) (to Geothermal Caverns) later" ToolTip="Splits after leaving Shantytown to go into the Geothermal Caverns. After the water." State="false"/>
+		<Setting Id="bi_entrance_bi_ceremony" Label="Sam Trial of Fire" ToolTip="Splits when trial of fire for sam cutscene starts playing" State="false"/>
+		<Setting Id="bi_ceremony_bi_pit" Label="Blood Bath" ToolTip="Splits when lara jumps down into the blood pool" State="false"/>
+		<Setting Id="bi_pit_bi_catocombs" Label="Stealthy" ToolTip="Splits when leaving the mini puzzle area with the canabals" State="false"/>
+		<Setting Id="bi_catocombs_bi_altar_room" Label="A Ceremony" ToolTip="Splits when getting to Cermony room" State="false"/>
+		<Setting Id="bi_altar_room_bi_puzzle" Label="Reyes, Jonah, Alex Your ALIVE!" ToolTip="Splits when getting to the puzzle room" State="false"/>
 		<Setting Id="bi_puzzle_bi_exit" Label="Geothermal Caverns(sooner)" ToolTip="Splits when doing friendship skip." State="false"/>
 		<Setting Id="bi_exit_ge_01" Label="Geothermal Caverns" ToolTip="Splits when entering the Solarii Fortress." State="false"/>
+		<Setting Id="ge_01_ge_02" Label="Explosions EveryWhere" ToolTip="Splits when there is a stupid amount of Explosions" State="false"/>
+		<Setting Id="ge_02_ge02_a" Label="Doctor Whitman?" ToolTip="Splits when getting to cutscene with Doctor Whitman" State="false"/>
+		<Setting Id="ge02_a_ge_03" Label="Weapons" ToolTip="Splits when getting your weapons back fight" State="false"/>
 		<Setting Id="ge_03_ge_04" Label="Burning room" ToolTip="Splits when you leave burning room of first fight" State="false"/>
 		<Setting Id="Grenade launcher" Label="Grenade launcher" ToolTip="Splits when you aquire the grenade launcher" State="false"/>
+		<Setting Id="ge_04_ge_05" Label="Solarii Fortress Extra 1" ToolTip="Work in progress" State="false"/>
+		<Setting Id="ge_05_ge06" Label="Solarii Fortress Extra 2" ToolTip="Work in progress" State="false"/>
 		<Setting Id="ge_06_ge_07" Label="Sam" ToolTip="Splits when in the cutscene when sam picks up a pistol" State="false"/>
 		<Setting Id="ge_07_ge_08" Label="Solarii Fortress" ToolTip="Splits at gate with sam in Solarii Fortress" State="false"/>
+		<Setting Id="ge_08_tt_two_towers" Label="Burning Building" ToolTip="Splits when leaving the burning building with the zipline" State="false"/>
 		<Setting Id="tt_two_towers_tt_connector_to_rc_01_marsh" Label="Helicopter" ToolTip="Splits during helicopter crash cutscene" State="false"/>
 		<Setting Id="tt_connector_to_rc_01_marsh_rc_01_marsh" Label="Fortress Tower" ToolTip="Splits after the helicopter crash cutscene." State="false"/>
+		<Setting Id="rc_01_marsh_rc_15_camp" Label="Time for stealth again" ToolTip="Splits when getting to the stealth area" State="false"/>
+		<Setting Id="rc_15_camp_rc_20_wolfden" Label="Doggies" ToolTip="Splits when entering the wolfden room" State="false"/>
 		<Setting Id="rc_20_wolfden_sh_scavenger_hub_2" Label="Summit Forest" ToolTip="Splits when exiting the Summit Forest cave towards Shantytown." State="false"/>
 		<Setting Id="sh_scavenger_hub_2_tb_skub_to_kick_the_bucket" Label="Shantytown (South) (to Gondola)" ToolTip="Splits when exiting from the Shantytown via the gondola." State="false"/>
+		<Setting Id="tb_skub_to_kick_the_bucket_tb_to_beach" Label="Gondola Transport Extra" ToolTip="Work in progress" State="false"/>
 		<Setting Id="tb_to_beach_tb_to_beach_to_beach_hub_connector" Label="Gondola Transport" ToolTip="Splits after completing the gondola QTE and falling into the river at the bottom." State="false"/>
 		<Setting Id="Where's Alex" Label="Where's Alex" ToolTip="Splits during the cutscene where you reunite with the crew on the beach" State="false"/>
 		<Setting Id="Compound bow" Label="Compound bow" ToolTip="Splits during the cutscene when Jonnah gives you the Compound bow" State="false"/>
 		<Setting Id="bh_beach_hub_sb_01" Label="Shipwreck Beach (to Cliffside Bunker)" ToolTip="Splits when leaving the beach towards the bunker." State="false"/>
+		<Setting Id="sb_05_sb_15" Label="WW2 Base to Endurance" ToolTip="Splits when dropping down to the Endurance" State="false"/>
 		<Setting Id="Goaliath" Label="Goaliath boss" ToolTip="Splits when getting the rope ascender cutscene" State="false"/>
+		<Setting Id="sb_15_sb_16" Label="Goaliath Done" ToolTip="Splits when dropping down the hole in the endurance" State="false"/>
 		<Setting Id="Mirror" Label="Mirror" ToolTip="Splits during the cutscene with lara looking herself in the mirror on the endurance" State="false"/>
+		<Setting Id="sb_16_sb_20" Label="2nd half of endurance" ToolTip="Splits when getting to the 2nd half of the endurance" State="false"/>
+		<Setting Id="sb_20_sb_21" Label="Time to save alex" ToolTip="Splits when dropping down the hole in the 2nd half of the endurance" State="false"/>
 		<Setting Id="Alex who?" Label="Alex who?" ToolTip="Splits during alex death cutscene" State="false"/>
 		<Setting Id="sb_21_sb_15" Label="Endurance(cutscene)" ToolTip="Splits when lara sees other half of ship go into water cutscene" State="false"/>
 		<Setting Id="sb_15_sb_05" Label="Endurance(not cutscene)" ToolTip="Splits when leaving the Endurance area" State="false"/>
@@ -58,27 +94,26 @@
 		<Setting Id="sb_01_bh_beach_hub" Label="Cliffside Bunker" ToolTip="Splits when leaving the bunker towards the beach." State="false"/>
 		<Setting Id="Tools" Label="Tools" ToolTip="Splits during the cutscene when lara gives Ryes the tools" State="false"/>
 		<Setting Id="bh_beach_hub_si_05_bunker_to_research_connector" Label="Shipwreck Beach (to Research Base)" ToolTip="Splits when jumping down into the Research Base." State="false"/>
+		<Setting Id="si_05_bunker_to_research_connector_si_25_tomb" Label="Research Base Extra 1" ToolTip="Work in progress" State="false"/>
 		<Setting Id="Samurai" Label="Samurai" ToolTip="Splits on Samurai cutscene in Reasearch base" State="false"/>
+		<Setting Id="si_25_tomb_si_30_tomb_to_bh_connector" Label="Research Base Early" ToolTip="Splits when leaving Reasearch Base Early" State="false"/>
 		<Setting Id="si_30_tomb_to_bh_connector_bh_beach_hub" Label="Reasearch Base" ToolTip="Splits when leaving reasearch base" State="false"/>
 		<Setting Id="bh_beach_hub_ptboat_cine" Label="Shipwreck Beach (Boat to Mountain Pass)" ToolTip="Splits after departing down the river from the beach with Reyes and Jonah." State="false"/>
+		<Setting Id="ptboat_cine_chasm_entrance" Label="Shipwreck Beach (Boat to Mountain Pass) Later" ToolTip="Splits during the unskippable cutscene" State="false"/>
 		<Setting Id="Dr James Whitman" Label="Dr James Whitman" ToolTip="Splits during whitman death cutscene" State="false"/>
+		<Setting Id="chasm_entrance_mb_eatery" Label="Chasm Stronghold Extra 1" ToolTip="Work in progress" State="false"/>
+		<Setting Id="mb_eastery_mb_readyroom" Label="Goaliath Armor" ToolTip="Splits when entering the Goaliath Armor room" State="false"/>
+		<Setting Id="mb_readyroom_chasm_streamgall_01" Label="" ToolTip="Work in progress" State="false"/>
+		<Setting Id="chasm_streamgall_01_mb_candlehall_combat" Label="Chasm Stronghold Extra 2" ToolTip="Work in progress" State="false"/>
+		<Setting Id="mb_candlehall_combat_chasm_streamgall_02" Label="Chasm Stronghold Extra 3" ToolTip="Work in progress" State="false"/>
+		<Setting Id="chasm_streamgall_02_chasm_bridge" Label="Bridge" ToolTip="Splits when getting to the windy bridge" State="false"/>
 		<Setting Id="chasm_bridge_qt_pre_stalker_arena" Label="Chasm Stronghold" ToolTip="Splits after crossing the bridge following the big fight." State="false"/>
+		<Setting Id="qt_pre_stalker_arena_qt_stalkerfight" Label="Chasm Shrine puzzle room" ToolTip="Splits when entering the puzzle room" State="false"/>
+		<Setting Id="qt_stalkerfight_qt_hall_of_queens" Label="Lara Realizes" ToolTip="Splits when entering the room where Lara realizes Mathias purpose for all this" State="false"/>
+		<Setting Id="qt_hall_of_queens_qt_trial_by_fire" Label="Point of no Return" ToolTip="Splits when getting to the point of no return cutscene" State="false"/>
 		<Setting Id="qt_trial_by_fire_qt_scale_the_ziggurat" Label="Chasm Shrine" ToolTip="Splits when crossing the bridge before the ziggurat." State="false"/>
 		<Setting Id="qt_zig_to_ritual_connector_qt_the_ritual" Label="Climb" ToolTip="Splits when you get to the top of the spire and the cutscene activates" State="false"/>
 		<Setting Id="Mathias" Label="Chasm Ziggurat" ToolTip="Splits after defeating Mathias." State="false"/>
-	</Setting>
-
-	<Setting Id="Extra Proggression" Label="Extra split points during game progression but not very useful" State="false">
-		<Setting Id="survival_den97_survival_den_rambotunnel" Label="Survival den Extra 1" ToolTip="Work in progress" State="false"/>
-		<Setting Id="survival_den_rambotunnel_survival_den_puzzleroom" Label="Survival den Extra 2" ToolTip="Work in progress" State="false"/>
-		<Setting Id="survival_den_puzzleroom_survival_den03" Label="Survival den Extra 3" ToolTip="Work in progress" State="false"/>
-		<Setting Id="survival_den03_survival_den04" Label="Survival den Extra 4" ToolTip="Work in progress" State="false"/>
-		<Setting Id="ww2_sos_01_ww2_sos_02" Label="Base Approach Extra" ToolTip="Splits when you get to the spot light area" State="false"/>
-		<Setting Id="ww2sos_03_ww2sos_gas_puzzle" Label="MountainBase Extra 1" ToolTip="splits when you enter the gas puzzle room" State="false"/>
-		<Setting Id="ww2sos_gas_puzzle_ww2sos_map_room" Label="MountainBase  Extra 2" ToolTip="splits when entering ambush room" State="false"/>
-		<Setting Id="ww2sos_map_room_ww2sos_03_to_04_connector" Label="MountainBase Extra 3" ToolTip="Splits going into the small gap" State="false"/>
-		<Setting Id="cliffs_of_insanity_vh_cliffs_to_hub_connector_a" Label="Cliffside Village Extra 1" ToolTip="Splits in tunnel while talking to roth" State="false"/>
-		<Setting Id="vh_cliffs_to_hub_connector_a_vh_cliffs_to_hub_connector_b" Label="Cliffside Village Extra 2" ToolTip="Splits after the forced radio convo with roth" State="false"/>
 	</Setting>
 
 	<Setting Id="Fast Travel" Label="Splits on fast travel" State="false">
