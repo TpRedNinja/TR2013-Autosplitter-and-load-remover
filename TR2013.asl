@@ -171,7 +171,7 @@ update
             {
                 vars.CutsceneCounterForrest ++;
             }
-        } else if (settings["VLADIMIR"])
+        } else if (settings["VLADIMIR!"])
         {
             if (current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue == 136 && old.cutsceneValue != 136 && vars.CutsceneCounterMountainClimb != 2)
             {
