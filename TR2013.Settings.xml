@@ -1,5 +1,5 @@
 <Settings>
-		<Setting Id="Proggression" Label="Splits during progression points of the game" State="false">
+	<Setting Id="Proggression" Label="Splits during progression points of the game" State="false">
 		<Setting Id="survival_den97_survival_den_rambotunnel" Label="Give me the JUMP!" ToolTip="Splits after first qte with guy trying to grab you" State="false"/>
 		<Setting Id="survival_den_rambotunnel_survival_den_puzzleroom" Label="Neck high water" ToolTip="Splits after leaving the neck high water" State="false"/>
 		<Setting Id="survival_den_puzzleroom_survival_den03" Label="Puzzle Room" ToolTip="Splits right before falling down the slide with cave collapsing" State="false"/>
