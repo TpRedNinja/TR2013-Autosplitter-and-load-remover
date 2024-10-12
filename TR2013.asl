@@ -11,7 +11,8 @@ state("TombRaider", "Steam_743.0")
 {
     bool FMV				: "binkw32.dll", 0x2830C; //Works on all versions but MS(Microsoft store)
     int cutsceneValue		: 0x211AB5C; //712 first cutscene then 520 then 8 for dragging cutscene, 520 in most cutscenes but 712 during final cutscene.
-    bool isLoading			: 0x1E33250; //True or False, True is 1 false is 0 
+    bool isLoading			: 0x1E33250; //True or False, True is 1 false is 0
+    bool Camp               : 0x10E7774; //True or False, True is 1 faalse is 0
 	
 	string50 level			: 0x1E28EA8; //detects level change
     float Percentage        : 0x01D34A40, 0x24; //isint always up to date with the progression in the map an not everything makes it change
@@ -29,6 +30,7 @@ state("TombRaider", "Steam_Current")
     bool FMV				: "binkw32.dll", 0x2830C;
     int cutsceneValue		: 0x20C97C0; 
     bool isLoading			: 0x1DDBC51; //0x1CF7FE0 original
+    bool Camp               : 0x107DD44; 
 	
 	string50 level			: 0x1DC18D8;
     float Percentage        : 0x01CDD540, 0x24; 
@@ -36,7 +38,7 @@ state("TombRaider", "Steam_Current")
 	byte newGameSelect		: 0x020CF83C, 0x100, 0x24; 
 	int saveSlot			: 0x020CF83C, 0xFC, 0x24; 
 	
-    int Grenadelauncherammo : 0x01F7B6D4, 0x20, 0x8;
+    int Grenadelauncherammo : 0x20D0014;
     int bowAmmo				: 0x20CFD80; 
 }
 
@@ -45,7 +47,8 @@ state("TombRaider", "Epic")
 {
 	bool FMV				: "binkw32.dll", 0x2830C; 
     int cutsceneValue		: 0x20C7DBC; 
-    bool isLoading			: 0x1CF6960; //1CF6960 original
+    bool isLoading			: 0x1CF6960;
+    bool Camp               : 0x107C864; 
 	
 	string50 level			: 0x1DBF218;
     float Percentage        : 0x01CDBEC4, 0x24;
@@ -53,7 +56,7 @@ state("TombRaider", "Epic")
 	byte newGameSelect		: 0x020CDF00, 0x100, 0x24;
 	int saveSlot			: 0x020CDF00, 0xFC, 0x24;
 	
-	int Grenadelauncherammo : 0x01F79DA4, 0x20, 0x8;
+	int Grenadelauncherammo : 0x20CE6E4;
     int bowAmmo				: 0x20CE450;
 }
 
@@ -62,7 +65,8 @@ state("TombRaider", "MS")
 {
 	bool FMV				: "binkw32.dll", 0x314CC; 
     int cutsceneValue		: 0x34E4E18; //its very weird first cutscene isint 712 for whatever reason but final cutscene is.
-    bool isLoading			: 0x23C5A80; 
+    bool isLoading			: 0x23C5A80;
+    bool Camp               : 0x25F87F0;
 	
 	string50 level			: 0x33E5190;
     float Percentage        : 0x033B05D0, 0x24; 
@@ -70,7 +74,7 @@ state("TombRaider", "MS")
 	byte newGameSelect		: 0x034EC6B8, 0x218, 0x28;
 	int saveSlot			: 0x034EC6B8, 0x210, 0x28;
     
-    int Grenadelauncherammo : 0x0220A210, 0x40, 0xC;
+    int Grenadelauncherammo : 0x34ED0DC;
     int bowAmmo				: 0x34ECD6C;
 }
 
@@ -160,34 +164,35 @@ update
         }
     }
 
-    if (settings["3 wolves"])
-    {
-        if(current.level == "ac_main" && !vars.CompletedSplits.Contains("3 wolves") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterForrest != 2)
+    
+        if (settings["3 wolves"])
         {
-            vars.CutsceneCounterForrest ++;
-        }
-    } else if (settings["VLADIMIR"])
-    {
-        if (current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterMountainClimb != 2)
+            if(current.level == "ac_main" && !vars.CompletedSplits.Contains("3 wolves") && current.cutsceneValue == 136 && old.cutsceneValue != 136 && vars.CutsceneCounterForrest != 2)
+            {
+                vars.CutsceneCounterForrest ++;
+            }
+        } else if (settings["VLADIMIR"])
         {
-            vars.CutsceneCounterMountainClimb ++;
-        }
-        
-    } else if (settings["SOS"])
-    {
-        if (current.level == "ww2sos_04" && !vars.CompletedSplits.Contains("SOS") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterBaseExterior != 3)
+            if (current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue == 136 && old.cutsceneValue != 136 && vars.CutsceneCounterMountainClimb != 2)
+            {
+                vars.CutsceneCounterMountainClimb ++;
+            }
+            
+        } else if (settings["SOS"])
         {
-            vars.CutsceneCounterBaseExterior ++;
-        }
-        
-    }else if (settings["Lara Hurt"])
-    {
-        if (current.level == "de_descent_to_scav_hub_connector" && !vars.CompletedSplits.Contains("Lara Hurt") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterMountainDecent != 2)
+            if (current.level == "ww2sos_04" && !vars.CompletedSplits.Contains("SOS") && current.cutsceneValue == 136 && old.cutsceneValue != 136 && vars.CutsceneCounterBaseExterior != 3)
+            {
+                vars.CutsceneCounterBaseExterior ++;
+            }
+            
+        } else if (settings["Lara Hurt"])
         {
-            vars.CutsceneCounterMountainDecent ++;
-        }
-        
-    }
+            if (current.level == "de_descent_to_scav_hub_connector" && !vars.CompletedSplits.Contains("Lara Hurt") && current.cutsceneValue == 136 && old.cutsceneValue != 136 && vars.CutsceneCounterMountainDecent != 2)
+            {
+                vars.CutsceneCounterMountainDecent ++;
+            }
+            
+        }   
 
 }
 
@@ -197,14 +202,14 @@ start
     
     if (vars.version != "MS")
     {
-    // Starts timer when opening Fmv starts (after choosing difficulty)
+    	// Starts timer when opening Fmv starts (after choosing difficulty)
         if (old.level != "cine_chaos_beach" && current.level == "cine_chaos_beach" && current.saveSlot >= 1 )
         {
             timer.Run.Offset = TimeSpan.FromSeconds(0);
             return true;
         }
 
-    // Starts timer when loading the first checkpoint from save slot one and sets the starting time to 1:46.
+    	// Starts timer when loading the first checkpoint from save slot one and sets the starting time to 1:46.
         if (old.isLoading && !current.isLoading && current.level == "survival_den97" && current.saveSlot >= 1)
         { 
             timer.Run.Offset = TimeSpan.FromSeconds(106);
@@ -233,202 +238,200 @@ start
 
 split
 {
-    if (old.level != current.level) // Split on level changing
-    {
-        string leveltransition = old.level + "_" + current.level;
-        if (settings.ContainsKey(leveltransition) && settings[leveltransition] && !vars.CompletedSplits.Contains(leveltransition))
+        if (old.level != current.level) // Split on level changing
         {
-            vars.CompletedSplits.Add(leveltransition);
+            string leveltransition = old.level + "_" + current.level;
+            if (settings.ContainsKey(leveltransition) && settings[leveltransition] && !vars.CompletedSplits.Contains(leveltransition))
+            {
+                vars.CompletedSplits.Add(leveltransition);
+                return true;
+            }
+        }
+
+        //Bow, splits when ammo count changes to a value above 0 (ammo count is always -1 during loading screens)
+        if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("Bow") && current.bowAmmo > old.bowAmmo && old.bowAmmo > -1 && settings["Bow"])
+        {
+            vars.CompletedSplits.Add("Bow");
             return true;
         }
-    }
-	
-    //Bow, splits when ammo count changes to a value above 0 (ammo count is always -1 during loading screens)
-	if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("Bow") && current.bowAmmo > old.bowAmmo && old.bowAmmo > -1 && settings["Bow"])
-	{
-		vars.CompletedSplits.Add("Bow");
-		return true;
-	}
-	
-    //1st camp
-    if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 520 && current.Percentage >=  && settings["First Skill"])
-	{
-		vars.CompletedSplits.Add("First Skill");
-		return true;
-	}
 
-    //3 wolves qte
-    if(current.level == "ac_main" && !vars.CompletedSplits.Contains("3 wolves") && current.cutsceneValue == 520 && vars.CutsceneCounterForrest == 2 && settings["3 wolves"])
-	{
-		vars.CompletedSplits.Add("3 wolves");
-		return true;
-	}
+        //1st camp
+        if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 520 && current.Camp == 0 && old.Camp == 1 && settings["First Skill"])
+        {
+            vars.CompletedSplits.Add("First Skill");
+            return true;
+        }
 
-    //vladimir dead
-    if(current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue == 520 && vars.CutsceneCounterMountainClimb == 2 && settings["VLADIMIR!"])
-	{
-		vars.CompletedSplits.Add("VLADIMIR!");
-		return true;
-	}
+        //3 wolves qte
+        if(current.level == "ac_main" && !vars.CompletedSplits.Contains("3 wolves") && current.cutsceneValue == 520 && vars.CutsceneCounterForrest == 2 && settings["3 wolves"])
+        {
+            vars.CompletedSplits.Add("3 wolves");
+            return true;
+        }
 
-    //Chimney
-    if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Chimney") && current.cutsceneValue == 520 && current.Percentage >= 6 && settings["Chimney"])
-	{
-		vars.CompletedSplits.Add("Chimney");
-		return true;
-	}
+        //vladimir dead
+        if(current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue == 520 && vars.CutsceneCounterMountainClimb == 2 && settings["VLADIMIR!"])
+        {
+            vars.CompletedSplits.Add("VLADIMIR!");
+            return true;
+        }
 
-	//Wolves, splits when FMV at campfire ends
-	if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Wolves") && current.cutsceneValue == 521 && old.cutsceneValue == 520 && settings["Wolves"])
-	{
-		vars.CompletedSplits.Add("Wolves");
-		return true;
-	}
+        //Chimney
+        if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Chimney") && current.cutsceneValue == 520 && current.Percentage >= 6 && settings["Chimney"])
+        {
+            vars.CompletedSplits.Add("Chimney");
+            return true;
+        }
 
-    //campfire
-    if(current.level == "ww2_sos_01" && !vars.CompletedSplits.Contains("CampFire") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && settings["CampFire"])
-	{
-		vars.CompletedSplits.Add("CampFire");
-		return true;
-	}
+        //Wolves, splits when FMV at campfire ends
+        if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Wolves") && current.cutsceneValue == 521 && old.cutsceneValue == 520 && settings["Wolves"])
+        {
+            vars.CompletedSplits.Add("Wolves");
+            return true;
+        }
 
-    //campfire alt
-    if(current.level == "ww2_sos_01" && !vars.CompletedSplits.Contains("CampFireAlt") && current.FMV == 1 && old.FMV == 0 && settings["CampFireAlt"])
-	{
-		vars.CompletedSplits.Add("CampFireAlt");
-		return true;
-	}
+        //campfire
+        if(current.level == "ww2_sos_01" && !vars.CompletedSplits.Contains("CampFire") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && settings["CampFire"])
+        {
+            vars.CompletedSplits.Add("CampFire");
+            return true;
+        }
 
-    //alex helping lara cutscene for sos
-    if(current.level == "ww2sos_map_room" && !vars.CompletedSplits.Contains("Ambush Room") && current.cutsceneValue == 520 && settings["Ambush Room"])
-	{
-		vars.CompletedSplits.Add("Ambush Room");
-		return true;
-	}
+        //campfire alt
+        if(current.level == "ww2_sos_01" && !vars.CompletedSplits.Contains("CampFireAlt") && current.FMV == 1 && old.FMV == 0 && settings["CampFireAlt"])
+        {
+            vars.CompletedSplits.Add("CampFireAlt");
+            return true;
+        }
 
-    //sos sent
-    if(current.level == "ww2sos_04" && !vars.CompletedSplits.Contains("SOS") && current.cutsceneValue == 520 && vars.CutsceneCounterBaseExterior == 3 && settings["SOS"])
-	{
-		vars.CompletedSplits.Add("SOS");
-		return true;
-	}
+        //alex helping lara cutscene for sos
+        if(current.level == "ww2sos_map_room" && !vars.CompletedSplits.Contains("Ambush Room") && current.cutsceneValue == 520 && settings["Ambush Room"])
+        {
+            vars.CompletedSplits.Add("Ambush Room");
+            return true;
+        }
 
-    //You know about loss
-    if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Loss") && current.cutsceneValue == 520 && current.Percentage >= 19.72 && settings["Loss"])
-	{
-		vars.CompletedSplits.Add("Loss");
-		return true;
-	}
+        //sos sent
+        if(current.level == "ww2sos_04" && !vars.CompletedSplits.Contains("SOS") && current.cutsceneValue == 520 && vars.CutsceneCounterBaseExterior == 3 && settings["SOS"])
+        {
+            vars.CompletedSplits.Add("SOS");
+            return true;
+        }
 
-    //Bell Cutscene
-    if(current.level == "ma_puzzle" && !vars.CompletedSplits.Contains("Bell Cutscene") && current.cutsceneValue == 520 && settings["Bell Cutscene"])
-	{
-		vars.CompletedSplits.Add("Bell Cutscene");
-		return true;
-	}
+        //You know about loss
+        if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Loss") && current.cutsceneValue == 520 && current.Percentage >= 19.72 && settings["Loss"])
+        {
+            vars.CompletedSplits.Add("Loss");
+            return true;
+        }
 
-    //Lara Hurt
-    if(current.level == "de_descent_to_scav_hub_connector" && !vars.CompletedSplits.Contains("Lara Hurt") && current.cutsceneValue == 520 && settings["Lara Hurt"])
-	{
-		vars.CompletedSplits.Add("Lara Hurt");
-		return true;
-	}
-    
-    //Grenade launcher, splits when getting the grenade launcher
-    if (current.Grenadelauncherammo == 2 && !vars.CompletedSplits.Contains("Grenade launcher") && old.cutsceneValue == 521 && settings["Grenade launcher"] )
-    {
-        vars.CompletedSplits.Add("Grenade launcher");
-        return true;
-    }
+        //Bell Cutscene
+        if(current.level == "ma_puzzle" && !vars.CompletedSplits.Contains("Bell Cutscene") && current.cutsceneValue == 520 && settings["Bell Cutscene"])
+        {
+            vars.CompletedSplits.Add("Bell Cutscene");
+            return true;
+        }
 
-    //where's alex?
-    if(current.level == "bh_beach_hub" && !vars.CompletedSplits.Contains("Where's Alex") && current.cutsceneValue == 520 && current.Percentage >= 40.14 && settings["Where's Alex"])
-	{
-		vars.CompletedSplits.Add("Where's Alex");
-		return true;
-	}
+        //Lara Hurt
+        if(current.level == "de_descent_to_scav_hub_connector" && !vars.CompletedSplits.Contains("Lara Hurt") && current.cutsceneValue == 520 && settings["Lara Hurt"])
+        {
+            vars.CompletedSplits.Add("Lara Hurt");
+            return true;
+        }
+        
+        //Grenade launcher, splits when getting the grenade launcher
+        if (current.Grenadelauncherammo == 2 && !vars.CompletedSplits.Contains("Grenade launcher") && old.cutsceneValue == 521 && settings["Grenade launcher"] )
+        {
+            vars.CompletedSplits.Add("Grenade launcher");
+            return true;
+        }
 
-    //Compound bow
-    if(current.level == "bh_beach_hub" && !vars.CompletedSplits.Contains("Compound bow") && current.cutsceneValue == 520 && current.Percentage >= 42.14 && settings["Compound bow"])
-	{
-		vars.CompletedSplits.Add("Compound bow");
-		return true;
-	}
+        //where's alex?
+        if(current.level == "bh_beach_hub" && !vars.CompletedSplits.Contains("Where's Alex") && current.cutsceneValue == 520 && current.Percentage >= 40.14 && settings["Where's Alex"])
+        {
+            vars.CompletedSplits.Add("Where's Alex");
+            return true;
+        }
 
-    //Goaliath, Splits when getting rope ascender
-    if (current.level == "sb_15" && !vars.CompletedSplits.Contains("Goaliath") && current.cutsceneValue == 520 && settings["Goaliath"])
-    {
-        vars.CompletedSplits.Add("Goaliath");
-        return true;    
-    }
-    //Goaliath, Splits when getting rope ascender
-    if (current.level == "sb_16" && !vars.CompletedSplits.Contains("Mirror") && current.cutsceneValue == 520 && settings["Mirror"])
-    {
-        vars.CompletedSplits.Add("Mirror");
-        return true;    
-    }
+        //Compound bow
+        if(current.level == "bh_beach_hub" && !vars.CompletedSplits.Contains("Compound bow") && current.cutsceneValue == 520 && current.Percentage >= 42.14 && settings["Compound bow"])
+        {
+            vars.CompletedSplits.Add("Compound bow");
+            return true;
+        }
 
-    //Alex who?, Splits during alex death cutscene
-    if (current.level == "sb_20" && !vars.CompletedSplits.Contains("Alex who?") && current.cutsceneValue == 520 && settings["Alex who?"])
-    {
-        vars.CompletedSplits.Add("Alex who?");
-        return true;
-    }
-    
-    //Book, Splits during the cutscene when lara picks up the document
-    if (current.level == "sb_05" && !vars.CompletedSplits.Contains("Book") && current.cutsceneValue == 520 && settings["Book"])
-    {
-        vars.CompletedSplits.Add("Book");
-        return true;
-    }
-    
-    //Tools
-    if(current.level == "bh_beach_hub" && !vars.CompletedSplits.Contains("Tools") && current.cutsceneValue == 520 && current.Percentage >= 46.83 && settings["Tools"])
-	{
-		vars.CompletedSplits.Add("Tools");
-		return true;
-	}
+        //Goaliath, Splits when getting rope ascender
+        if (current.level == "sb_15" && !vars.CompletedSplits.Contains("Goaliath") && current.cutsceneValue == 520 && settings["Goaliath"])
+        {
+            vars.CompletedSplits.Add("Goaliath");
+            return true;    
+        }
+        //Goaliath, Splits when getting rope ascender
+        if (current.level == "sb_16" && !vars.CompletedSplits.Contains("Mirror") && current.cutsceneValue == 520 && settings["Mirror"])
+        {
+            vars.CompletedSplits.Add("Mirror");
+            return true;    
+        }
 
-    //Tools
-    if(current.level == "si_25_tomb" && !vars.CompletedSplits.Contains("Samurai") && current.cutsceneValue == 520 && settings["Samurai"])
-	{
-		vars.CompletedSplits.Add("Samurai");
-		return true;
-	}
+        //Alex who?, Splits during alex death cutscene
+        if (current.level == "sb_20" && !vars.CompletedSplits.Contains("Alex who?") && current.cutsceneValue == 520 && settings["Alex who?"])
+        {
+            vars.CompletedSplits.Add("Alex who?");
+            return true;
+        }
+        
+        //Book, Splits during the cutscene when lara picks up the document
+        if (current.level == "sb_05" && !vars.CompletedSplits.Contains("Book") && current.cutsceneValue == 520 && settings["Book"])
+        {
+            vars.CompletedSplits.Add("Book");
+            return true;
+        }
+        
+        //Tools
+        if(current.level == "bh_beach_hub" && !vars.CompletedSplits.Contains("Tools") && current.cutsceneValue == 520 && current.Percentage >= 46.83 && settings["Tools"])
+        {
+            vars.CompletedSplits.Add("Tools");
+            return true;
+        }
 
-    //Dr James Whitman, Splits during Whitmans death cutscene
-    if (current.level == "chasm_entrance" && !vars.CompletedSplits.Contains("Dr James Whitman") && current.cutsceneValue == 520 && settings["Dr James Whitman"])
-    {
-        vars.CompletedSplits.Add("Dr James Whitman");
-        return true;
-    }
+        //Tools
+        if(current.level == "si_25_tomb" && !vars.CompletedSplits.Contains("Samurai") && current.cutsceneValue == 520 && settings["Samurai"])
+        {
+            vars.CompletedSplits.Add("Samurai");
+            return true;
+        }
 
-	//Final split
-	if(current.level == "qt_the_ritual" && old.cutsceneValue != 712 && current.cutsceneValue == 712 && settings["Mathias"])
-	{
-		vars.CompletedSplits.Add("Mathias");
-        return true;
-	}
+        //Dr James Whitman, Splits during Whitmans death cutscene
+        if (current.level == "chasm_entrance" && !vars.CompletedSplits.Contains("Dr James Whitman") && current.cutsceneValue == 520 && settings["Dr James Whitman"])
+        {
+            vars.CompletedSplits.Add("Dr James Whitman");
+            return true;
+        }
+
+        //Final split
+        if(current.level == "qt_the_ritual" && old.cutsceneValue != 712 && current.cutsceneValue == 712 && settings["Mathias"])
+        {
+            vars.CompletedSplits.Add("Mathias");
+            return true;
+        }
 
 }
 
 isLoading
 {
-
-    if(current.cutsceneValue != 8 && (current.bowAmmo == -1 || current.isLoading || current.FMV))
-    {
-        return true;
-    } else if (current.bowAmmo == -1 || current.isLoading || current.FMV)
-    {
-        return true;
-    } else if (current.cutsceneValue == 520 && (current.bowAmmo == -1 || current.isLoading == false || current.FMV == false))
-    {
-        return true;
-    } else
-    {
-        return false;
-    }
-
+        if(current.cutsceneValue != 8 && (current.bowAmmo == -1 || current.isLoading || current.FMV))
+        {
+            return true;
+        } else if (current.bowAmmo == -1 || current.isLoading || current.FMV)
+        {
+            return true;
+        } else if (current.cutsceneValue == 520 && (current.bowAmmo == -1 || current.isLoading == false || current.FMV == false))
+        {
+            return true;
+        } else
+        {
+            return false;
+        } 
 }
 
 exit
