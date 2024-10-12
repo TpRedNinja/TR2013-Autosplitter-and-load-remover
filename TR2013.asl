@@ -175,7 +175,7 @@ update
         
     } else if (settings["SOS"])
     {
-        if (ccurrent.level == "ww2sos_04" && !vars.CompletedSplits.Contains("SOS") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterBaseExterior != 3)
+        if (current.level == "ww2sos_04" && !vars.CompletedSplits.Contains("SOS") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterBaseExterior != 3)
         {
             vars.CutsceneCounterBaseExterior ++;
         }
