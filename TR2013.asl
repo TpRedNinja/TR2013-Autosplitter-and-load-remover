@@ -12,7 +12,7 @@ state("TombRaider", "Steam_743.0")
     bool FMV			: "binkw32.dll", 0x2830C; //Works on all versions but MS(Microsoft store)
     int cutsceneValue		: 0x211AB5C; //712 first cutscene then 520 then 8 for dragging cutscene, 520 in most cutscenes but 712 during final cutscene.
     bool isLoading		: 0x1E33250; //True or False, True is 1 false is 0
-    bool Camp               	: 0x10E7780; //True or False, True is 1 faalse is 0
+    int Camp               	: 0x10E7780; //True or False, True is 1 faalse is 0
 	
     string50 level		: 0x1E28EA8; //detects level change
     float Percentage            : 0x01D34A40, 0x24; //isint always up to date with the progression in the map an not everything makes it change
@@ -30,7 +30,7 @@ state("TombRaider", "Steam_Current")
     bool FMV			: "binkw32.dll", 0x2830C;
     int cutsceneValue		: 0x20C97C0; 
     bool isLoading		: 0x1DDBC51; //0x1CF7FE0 original
-    bool Camp               	: 0x107DD50; 
+    int Camp               	: 0x107DD50; 
 	
     string50 level		: 0x1DC18D8;
     float Percentage         	: 0x01CDD540, 0x24; 
@@ -48,7 +48,7 @@ state("TombRaider", "Epic")
     bool FMV			: "binkw32.dll", 0x2830C; 
     int cutsceneValue		: 0x20C7DBC; 
     bool isLoading		: 0x1CF6960;
-    bool Camp               	: 0x107C870; 
+    int Camp               	: 0x107C870; 
 	
     string50 level		: 0x1DBF218;
     float Percentage        	: 0x01CDBEC4, 0x24;
@@ -66,7 +66,7 @@ state("TombRaider", "MS")
     bool FMV			: "binkw32.dll", 0x314CC; 
     int cutsceneValue		: 0x34E4E18; //its very weird first cutscene isint 712 for whatever reason but final cutscene is.
     bool isLoading		: 0x23C5A80;
-    bool Camp               	: 0x25F87FC;
+    int Camp               	: 0x25F87FC;
 	
     string50 level		: 0x33E5190;
     float Percentage        	: 0x033B05D0, 0x24; 
@@ -250,7 +250,7 @@ split
         }
 
         //1st camp
-        if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 520 && !current.Camp && settings["First Skill"])
+        if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 520 && current.Camp == 0 && old.Camp == 1 && settings["First Skill"])
         {
             vars.CompletedSplits.Add("First Skill");
             return true;
