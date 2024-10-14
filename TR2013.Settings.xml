@@ -28,7 +28,7 @@
 		<Setting Id="ww2sos_map_room_ww2sos_03_to_04_connector" Label="Map room" ToolTip="Splits going into the small gap" State="false"/>
 		<Setting Id="ww2sos_03_to_04_connector_ww2sos_04" Label="Mountain Base" ToolTip="Splits after exiting the Mountain Base into the snowy outside." State="false"/>
 		<Setting Id="SOS" Label="SOS" ToolTip="Splits during the cutscene afte the mini game to get the sos signal to work" State="false"/>
-		<Setting Id="ww2sos_04_ww2_sos_05" Label="Sos Signal" ToolTip="Splits after a little bit after you leave the SOS tower" State="false"/>
+		<Setting Id="ww2sos_04_ww2sos_05" Label="Sos Signal" ToolTip="Splits after a little bit after you leave the SOS tower" State="false"/>
 		<Setting Id="ww2sos_05_slide_of_insanity" Label="Base Exterior" ToolTip="Splits after descending the communications tower and blowing up the fuel tanks." State="false"/>
 		<Setting Id="slide_of_insanity_cliffs_of_insanity" Label="Slide" ToolTip="Splits after the slide and when location updates" State="false"/>
 		<Setting Id="cliffs_of_insanity_vh_cliffs_to_hub_connector_a" Label="LARA! What the hell happened" ToolTip="Splits in tunnel while talking to roth" State="false"/>
@@ -44,6 +44,8 @@
 		<Setting Id="Bell Cutscene" Label="Bell Cutscene" ToolTip="Splits when Bell Cutscene plays" State="false"/>
 		<Setting Id="ma_puzzle_ma_run_out" Label="Bell" ToolTip="Splits after bell cutscene" State="false"/>
 		<Setting Id="ma_run_out_ma_chasm_to_hub_connector" Label="Chasm Monestary" ToolTip="Splits after falling from the collapsing monastary tunnel." State="false"/>
+		<Setting Id="ma_chasm_to_hub_connector_vh_chasm_to_hub_connector" Label="Chasm Monastery(Later)" ToolTip="Splits when you get near the abstruction that needs to be destroyed by your shotgun" State="false"/>
+		<Setting Id="vh_chasm_to_hub_connector_vh_main" Label="Talk to Roth" ToolTip="Splits after leaving the area where you have the convo with roth through the crack" State="false"/>
 		<Setting Id="vh_main_vh_vhmain_to_descent_connector" Label="Mountain Village 3" ToolTip="Splits when going down the zipline to get to waterfall before parachute " State="false"/>
 		<Setting Id="vh_vhmain_to_descent_connector_de_descent" Label="Time for water slide" ToolTip="Splits right before entering the water" State="false"/>
 		<Setting Id="de_descent_de_descent_to_scav_hub_connector" Label="Time for Parachute" ToolTip="Splits when getting the parachute" State="false"/>
@@ -54,8 +56,8 @@
 		<Setting Id="sh_scavenger_hub_to_geothermal_connector_bi_entrance" Label="Shantytown (South) (to Geothermal Caverns) later" ToolTip="Splits after leaving Shantytown to go into the Geothermal Caverns. After the water." State="false"/>
 		<Setting Id="bi_entrance_bi_ceremony" Label="Sam Trial of Fire" ToolTip="Splits when trial of fire for sam cutscene starts playing" State="false"/>
 		<Setting Id="bi_ceremony_bi_pit" Label="Blood Bath" ToolTip="Splits when lara leaves the blood pool" State="false"/>
-		<Setting Id="bi_pit_bi_catocombs" Label="Stealthy" ToolTip="Splits when leaving the mini puzzle area with the canabals" State="false"/>
-		<Setting Id="bi_catocombs_bi_altar_room" Label="A Ceremony" ToolTip="Splits when getting to Cermony room" State="false"/>
+		<Setting Id="bi_pit_bi_catacombs" Label="Canabals" ToolTip="Splits when leaving the mini puzzle area with the canabals" State="false"/>
+		<Setting Id="bi_catacombs_bi_altar_room" Label="A Ceremony" ToolTip="Splits when getting to Cermony room" State="false"/>
 		<Setting Id="bi_altar_room_bi_puzzle" Label="Reyes, Jonah, Alex Your ALIVE!" ToolTip="Splits when getting to the puzzle room" State="false"/>
 		<Setting Id="bi_puzzle_bi_exit" Label="Geothermal Caverns(sooner)" ToolTip="Splits when doing friendship skip." State="false"/>
 		<Setting Id="bi_exit_ge_01" Label="Geothermal Caverns" ToolTip="Splits when entering the Solarii Fortress." State="false"/>
@@ -92,8 +94,8 @@
 		<Setting Id="sb_01_bh_beach_hub" Label="Cliffside Bunker" ToolTip="Splits when leaving the bunker towards the beach." State="false"/>
 		<Setting Id="Tools" Label="Tools" ToolTip="Splits during the cutscene when lara gives Ryes the tools" State="false"/>
 		<Setting Id="bh_beach_hub_si_05_bunker_to_research_connector" Label="Shipwreck Beach (to Research Base)" ToolTip="Splits when jumping down into the Research Base." State="false"/>
-		<Setting Id="si_05_bunker_to_research_connector_si_10_tomb" Label="2 Enemies" ToolTip="Splits when getting near the campfire with the 2 enemies" State="false"/>
-		<Setting Id="si_10_tomb_si_15_elevator" Label="Elevator puzzle time" ToolTip="Splits when getting to elevator puzzle" State="false"/>
+		<Setting Id="si_05_bunker_to_research_connector_si_10_research" Label="2 Enemies time" ToolTip="Splits when getting near the campfire with the 2 enemies" State="false"/>
+		<Setting Id="si_10_research_si_15_elevator" Label="Elevator puzzle time" ToolTip="Splits when getting to elevator puzzle" State="false"/>
 		<Setting Id="si_15_elevator_si_20_machinery" Label="Elevator puzzle done" ToolTip="Splits when you leave the elevator puzzle area" State="false"/>
 		<Setting Id="si_20_machinery_si_25_tomb" Label="Time for annoying ass fight" ToolTip="Splits when you enter the annoying ass fight area" State="false"/>
 		<Setting Id="Samurai" Label="Samurai" ToolTip="Splits on Samurai cutscene in Reasearch base" State="false"/>
@@ -106,13 +108,14 @@
 		<Setting Id="mb_eastery_mb_readyroom" Label="Goaliath Armor" ToolTip="Splits when entering the Goaliath Armor room" State="false"/>
 		<Setting Id="mb_readyroom_chasm_streamhall_01" Label="Lara Discovered" ToolTip="Splits when Lara gets discovered in the goaliath armor room" State="false"/>
 		<Setting Id="chasm_streamhall_01_mb_candlehall_combat" Label="Mini Slide" ToolTip="Splits after awkward camera angle run and going down the slide" State="false"/>
-		<Setting Id="mb_candlehall_combat_chasm_streamgall_02" Label="3 Oni and 1 Girl" ToolTip="Splits when you get to the day camp after the 3 Oni" State="false"/>
-		<Setting Id="chasm_streamgall_02_chasm_bridge" Label="Windy" ToolTip="Splits when openning the door to windy area" State="false"/>
+		<Setting Id="mb_candlehall_combat_chasm_streamhall_02" Label="3 Oni and 1 Girl" ToolTip="Splits when you get to the day camp after the 3 Oni" State="false"/>
+		<Setting Id="chasm_streamhall_02_chasm_bridge" Label="Big Fight" ToolTip="Splits when openning the door to windy area" State="false"/>
 		<Setting Id="chasm_bridge_qt_pre_stalker_arena" Label="Chasm Stronghold" ToolTip="Splits after crossing the bridge following the big fight." State="false"/>
 		<Setting Id="qt_pre_stalker_arena_qt_stalkerfight" Label="Chasm Shrine puzzle room time" ToolTip="Splits when entering the puzzle room" State="false"/>
 		<Setting Id="qt_stalkerfight_qt_hall_of_queens" Label="Lara Realizes" ToolTip="Splits when entering the room where Lara realizes Mathias purpose for all this" State="false"/>
 		<Setting Id="qt_hall_of_queens_qt_trial_by_fire" Label="Point of no Return" ToolTip="Splits when getting to the point of no return cutscene" State="false"/>
 		<Setting Id="qt_trial_by_fire_qt_scale_the_ziggurat" Label="Chasm Shrine" ToolTip="Splits when crossing the bridge before the ziggurat." State="false"/>
+		<Setting Id="qt_scale_the_ziggurat_qt_zig_to_ritual_connector" Label="Almost there" ToolTip="Splits when you get to the camp right before the final climb" State="false"/>
 		<Setting Id="qt_zig_to_ritual_connector_qt_the_ritual" Label="Climb" ToolTip="Splits when you get to the top of the spire and the cutscene activates" State="false"/>
 		<Setting Id="Mathias" Label="Chasm Ziggurat" ToolTip="Splits after defeating Mathias." State="false"/>
 	</Setting>
@@ -157,13 +160,13 @@
 		</Setting>
 		<Setting Id="Exiting tombs" Label="Exit" ToolTip="All tomb's exit splits" State="false">
 			<Setting Id="ac_challenge_tomb_ac_main_to_swamp_connector" Label="Tomb of the lost Adventure (DLC NOT REQUIRED!)" ToolTip="Splits when exiting the Tomb of the Lost Adventure" State="false"/>
-    		<Setting Id="ct_batcave_vh_fisheries_connector" Label="Tomb of the Unworthy (village 1)" ToolTip="Splits when exiting the Tomb of the Unworthy" State="false"/>
-    		<Setting Id="ct_windchasm_ct_windchasm_connector" Label="Hall of Accension (village 2)" ToolTip="Splits when exiting the Hall of Accension " State="false"/>
-    		<Setting Id="vc_well_outsource_sh_scavenger_hub_to_well_connector" Label="Well of Tears (Shantytown 1)" ToolTip="Splits when exiting the Well of Tears."  State="false"/>
-    		<Setting Id="vc_plane_chopshop_vh_chopshop_connector" Label="Chamber of Judgement (Shantytown 2)" ToolTip="Splits when exiting the Chamber of Judgement" State="false"/>
-    		<Setting Id="ct_fortress_of_solitude_rc_sidetomb_connector" Label="Stormguard Sanctum (Summit Forrest)" ToolTip="Splits when exiting the Stormguard Sanctum" State="false"/>
-    		<Setting Id="vc_shockpond_bh_sidetomb_connector_02" Label="Flooded Vault (Beach 1)" ToolTip="Splits when exiting the Flooded Vault" State="false"/>
-    		<Setting Id="vc_fishery_bh_sidetomb_connector_01" Label="Temple of Handmaidens (Beach 2)" ToolTip="Splits when exiting the Temple of Handmaidens" State="false"/>
+	    		<Setting Id="ct_batcave_vh_fisheries_connector" Label="Tomb of the Unworthy (village 1)" ToolTip="Splits when exiting the Tomb of the Unworthy" State="false"/>
+	    		<Setting Id="ct_windchasm_ct_windchasm_connector" Label="Hall of Accension (village 2)" ToolTip="Splits when exiting the Hall of Accension " State="false"/>
+	    		<Setting Id="vc_well_outsource_sh_scavenger_hub_to_well_connector" Label="Well of Tears (Shantytown 1)" ToolTip="Splits when exiting the Well of Tears."  State="false"/>
+	    		<Setting Id="vc_plane_chopshop_vh_chopshop_connector" Label="Chamber of Judgement (Shantytown 2)" ToolTip="Splits when exiting the Chamber of Judgement" State="false"/>
+	    		<Setting Id="ct_fortress_of_solitude_rc_sidetomb_connector" Label="Stormguard Sanctum (Summit Forrest)" ToolTip="Splits when exiting the Stormguard Sanctum" State="false"/>
+	    		<Setting Id="vc_shockpond_bh_sidetomb_connector_02" Label="Flooded Vault (Beach 1)" ToolTip="Splits when exiting the Flooded Vault" State="false"/>
+	    		<Setting Id="vc_fishery_bh_sidetomb_connector_01" Label="Temple of Handmaidens (Beach 2)" ToolTip="Splits when exiting the Temple of Handmaidens" State="false"/>
 		</Setting>
 	</Setting>
 </Settings>
