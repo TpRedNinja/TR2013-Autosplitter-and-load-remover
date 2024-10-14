@@ -9,73 +9,73 @@
 //build743 case number [17892] 38739968 
 state("TombRaider", "Steam_743.0")
 {
-    bool FMV				: "binkw32.dll", 0x2830C; //Works on all versions but MS(Microsoft store)
+    bool FMV			: "binkw32.dll", 0x2830C; //Works on all versions but MS(Microsoft store)
     int cutsceneValue		: 0x211AB5C; //712 first cutscene then 520 then 8 for dragging cutscene, 520 in most cutscenes but 712 during final cutscene.
-    bool isLoading			: 0x1E33250; //True or False, True is 1 false is 0
-    bool Camp               : 0x10E7774; //True or False, True is 1 faalse is 0
+    bool isLoading		: 0x1E33250; //True or False, True is 1 false is 0
+    bool Camp               	: 0x10E7780; //True or False, True is 1 faalse is 0
 	
-	string50 level			: 0x1E28EA8; //detects level change
-    float Percentage        : 0x01D34A40, 0x24; //isint always up to date with the progression in the map an not everything makes it change
+    string50 level		: 0x1E28EA8; //detects level change
+    float Percentage            : 0x01D34A40, 0x24; //isint always up to date with the progression in the map an not everything makes it change
 	
-	byte newGameSelect		: 0x0211FEAC, 0x100, 0x24; //changes number base off the difficulty you choose 0 for easy(WHICH IS NOT ALLOWED EVER!) 1 for normal which is deult and 2 for hard this is how the newgameselect works DO NOT CHANGE!!!!
-	int saveSlot			: 0x0211FEAC, 0xFC, 0x24; //literally the saveslot number
+    byte newGameSelect		: 0x0211FEAC, 0x100, 0x24; //changes number base off the difficulty you choose 0 for easy(WHICH IS NOT ALLOWED EVER!) 1 for normal which is deult and 2 for hard this is how the newgameselect works DO NOT CHANGE!!!!
+    int saveSlot		: 0x0211FEAC, 0xFC, 0x24; //literally the saveslot number
 	
-	int Grenadelauncherammo : 0x2120684; // most of the time its null but eventually changes to -1 when ur close to getting the grenade launcher
-    int bowAmmo				: 0x21203F0; //bowAmmo
+    int GLA                 	: 0x2120684; // most of the time its null but eventually changes to -1 when ur close to getting the grenade launcher
+    int bowAmmo			: 0x21203F0; //bowAmmo
 }
 
 //[17892] 38543360 
 state("TombRaider", "Steam_Current")
 {
-    bool FMV				: "binkw32.dll", 0x2830C;
+    bool FMV			: "binkw32.dll", 0x2830C;
     int cutsceneValue		: 0x20C97C0; 
-    bool isLoading			: 0x1DDBC51; //0x1CF7FE0 original
-    bool Camp               : 0x107DD44; 
+    bool isLoading		: 0x1DDBC51; //0x1CF7FE0 original
+    bool Camp               	: 0x107DD50; 
 	
-	string50 level			: 0x1DC18D8;
-    float Percentage        : 0x01CDD540, 0x24; 
+    string50 level		: 0x1DC18D8;
+    float Percentage         	: 0x01CDD540, 0x24; 
 	
-	byte newGameSelect		: 0x020CF83C, 0x100, 0x24; 
-	int saveSlot			: 0x020CF83C, 0xFC, 0x24; 
+    byte newGameSelect		: 0x020CF83C, 0x100, 0x24; 
+    int saveSlot		: 0x020CF83C, 0xFC, 0x24; 
 	
-    int Grenadelauncherammo : 0x20D0014;
-    int bowAmmo				: 0x20CFD80; 
+    int GLA                 	: 0x20D0014;
+    int bowAmmo			: 0x20CFD80; 
 }
 
 //epic case number [17892] 38535168 
 state("TombRaider", "Epic")
 {
-	bool FMV				: "binkw32.dll", 0x2830C; 
+    bool FMV			: "binkw32.dll", 0x2830C; 
     int cutsceneValue		: 0x20C7DBC; 
-    bool isLoading			: 0x1CF6960;
-    bool Camp               : 0x107C864; 
+    bool isLoading		: 0x1CF6960;
+    bool Camp               	: 0x107C870; 
 	
-	string50 level			: 0x1DBF218;
-    float Percentage        : 0x01CDBEC4, 0x24;
+    string50 level		: 0x1DBF218;
+    float Percentage        	: 0x01CDBEC4, 0x24;
 	
-	byte newGameSelect		: 0x020CDF00, 0x100, 0x24;
-	int saveSlot			: 0x020CDF00, 0xFC, 0x24;
+    byte newGameSelect		: 0x020CDF00, 0x100, 0x24;
+    int saveSlot		: 0x020CDF00, 0xFC, 0x24;
 	
-	int Grenadelauncherammo : 0x20CE6E4;
-    int bowAmmo				: 0x20CE450;
+    int GLA                 	: 0x20CE6E4;
+    int bowAmmo			: 0x20CE450;
 }
 
 //MS case number [29008] 60145664 
 state("TombRaider", "MS")
 {
-	bool FMV				: "binkw32.dll", 0x314CC; 
+    bool FMV			: "binkw32.dll", 0x314CC; 
     int cutsceneValue		: 0x34E4E18; //its very weird first cutscene isint 712 for whatever reason but final cutscene is.
-    bool isLoading			: 0x23C5A80;
-    bool Camp               : 0x25F87F0;
+    bool isLoading		: 0x23C5A80;
+    bool Camp               	: 0x25F87FC;
 	
-	string50 level			: 0x33E5190;
-    float Percentage        : 0x033B05D0, 0x24; 
+    string50 level		: 0x33E5190;
+    float Percentage        	: 0x033B05D0, 0x24; 
 	
-	byte newGameSelect		: 0x034EC6B8, 0x218, 0x28;
-	int saveSlot			: 0x034EC6B8, 0x210, 0x28;
+    byte newGameSelect		: 0x034EC6B8, 0x218, 0x28;
+    int saveSlot		: 0x034EC6B8, 0x210, 0x28;
     
-    int Grenadelauncherammo : 0x34ED0DC;
-    int bowAmmo				: 0x34ECD6C;
+    int GLA                 	: 0x34ED0DC;
+    int bowAmmo			: 0x34ECD6C;
 }
 
 startup
@@ -91,8 +91,6 @@ startup
 
     vars.Helper.AlertLoadless();
     
-    // Initialize percentage variable
-    //float Percentage = 0.00f;
     
     // set text taken from Poppy Platime C2
     // to display the text associated with this script aka current percentage
@@ -158,36 +156,32 @@ update
         if (current.Percentage != null)
         {
         vars.SetTextComponent("Percentage Completion", current.Percentage + "%");
-        } else
-        {
-            vars.SetTextComponent("Error Open Game");
         }
     }
 
-    
         if (settings["3 wolves"])
         {
-            if(current.level == "ac_main" && !vars.CompletedSplits.Contains("3 wolves") && current.cutsceneValue == 136 && old.cutsceneValue != 136 && vars.CutsceneCounterForrest != 2)
+            if(current.level == "ac_main" && !vars.CompletedSplits.Contains("3 wolves") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterForrest != 2)
             {
                 vars.CutsceneCounterForrest ++;
             }
         } else if (settings["VLADIMIR!"])
         {
-            if (current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue == 136 && old.cutsceneValue != 136 && vars.CutsceneCounterMountainClimb != 2)
+            if (current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterMountainClimb != 2)
             {
                 vars.CutsceneCounterMountainClimb ++;
             }
             
         } else if (settings["SOS"])
         {
-            if (current.level == "ww2sos_04" && !vars.CompletedSplits.Contains("SOS") && current.cutsceneValue == 136 && old.cutsceneValue != 136 && vars.CutsceneCounterBaseExterior != 3)
+            if (current.level == "ww2sos_04" && !vars.CompletedSplits.Contains("SOS") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterBaseExterior != 3)
             {
                 vars.CutsceneCounterBaseExterior ++;
             }
             
         } else if (settings["Lara Hurt"])
         {
-            if (current.level == "de_descent_to_scav_hub_connector" && !vars.CompletedSplits.Contains("Lara Hurt") && current.cutsceneValue == 136 && old.cutsceneValue != 136 && vars.CutsceneCounterMountainDecent != 2)
+            if (current.level == "de_descent_to_scav_hub_connector" && !vars.CompletedSplits.Contains("Lara Hurt") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterMountainDecent != 2)
             {
                 vars.CutsceneCounterMountainDecent ++;
             }
@@ -202,14 +196,14 @@ start
     
     if (vars.version != "MS")
     {
-    	// Starts timer when opening Fmv starts (after choosing difficulty)
+    // Starts timer when opening Fmv starts (after choosing difficulty)
         if (old.level != "cine_chaos_beach" && current.level == "cine_chaos_beach" && current.saveSlot >= 1 )
         {
             timer.Run.Offset = TimeSpan.FromSeconds(0);
             return true;
         }
 
-    	// Starts timer when loading the first checkpoint from save slot one and sets the starting time to 1:46.
+    // Starts timer when loading the first checkpoint from save slot one and sets the starting time to 1:46.
         if (old.isLoading && !current.isLoading && current.level == "survival_den97" && current.saveSlot >= 1)
         { 
             timer.Run.Offset = TimeSpan.FromSeconds(106);
@@ -256,7 +250,7 @@ split
         }
 
         //1st camp
-        if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 520 && current.Camp == 0 && old.Camp == 1 && settings["First Skill"])
+        if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 520 && current.Camp == false && old.Camp == true && settings["First Skill"])
         {
             vars.CompletedSplits.Add("First Skill");
             return true;
@@ -277,7 +271,7 @@ split
         }
 
         //Chimney
-        if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Chimney") && current.cutsceneValue == 520 && current.Percentage >= 6 && settings["Chimney"])
+        if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Chimney") && current.cutsceneValue == 520 && current.Percentage >= 8 && settings["Chimney"])
         {
             vars.CompletedSplits.Add("Chimney");
             return true;
@@ -296,7 +290,7 @@ split
             vars.CompletedSplits.Add("CampFire");
             return true;
         }
-
+    
         //campfire alt
         if(current.level == "ww2_sos_01" && !vars.CompletedSplits.Contains("CampFireAlt") && current.FMV == 1 && old.FMV == 0 && settings["CampFireAlt"])
         {
@@ -333,14 +327,14 @@ split
         }
 
         //Lara Hurt
-        if(current.level == "de_descent_to_scav_hub_connector" && !vars.CompletedSplits.Contains("Lara Hurt") && current.cutsceneValue == 520 && settings["Lara Hurt"])
+        if(current.level == "de_descent_to_scav_hub_connector" && !vars.CompletedSplits.Contains("Lara Hurt") && current.cutsceneValue == 520 && vars.CutsceneCounterMountainDecent == 2 && settings["Lara Hurt"])
         {
             vars.CompletedSplits.Add("Lara Hurt");
             return true;
         }
         
         //Grenade launcher, splits when getting the grenade launcher
-        if (current.Grenadelauncherammo == 2 && !vars.CompletedSplits.Contains("Grenade launcher") && old.cutsceneValue == 521 && settings["Grenade launcher"] )
+        if (current.level == "ge_04" && !vars.CompletedSplits.Contains("Grenade launcher") && (current.GLA == 2 || current.GLA == 0) && current.cutsceneValue == 8 && settings["Grenade launcher"])
         {
             vars.CompletedSplits.Add("Grenade launcher");
             return true;
@@ -425,7 +419,7 @@ isLoading
         } else if (current.bowAmmo == -1 || current.isLoading || current.FMV)
         {
             return true;
-        } else if (current.cutsceneValue == 520 && (current.bowAmmo == -1 || current.isLoading == false || current.FMV == false))
+        } else if (current.cutsceneValue >= 520 && (current.bowAmmo == -1 || current.isLoading == false || current.FMV == false && current.level != "main"))
         {
             return true;
         } else
