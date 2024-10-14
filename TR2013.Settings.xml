@@ -73,7 +73,7 @@
 		<Setting Id="tt_two_towers_tt_connector_to_rc_01_marsh" Label="Helicopter" ToolTip="Splits during helicopter crash cutscene" State="false"/>
 		<Setting Id="tt_connector_to_rc_01_marsh_rc_01_marsh" Label="Fortress Tower" ToolTip="Splits after the helicopter crash cutscene." State="false"/>
 		<Setting Id="rc_01_marsh_rc_15_camp" Label="Time for stealth again" ToolTip="Splits when getting to the stealth area" State="false"/>
-		<Setting Id="rc_15_camp_rc_20_wolfden" Label="Doggies" ToolTip="Splits when entering the wolfden room" State="false"/>
+		<Setting Id="rc_15_camp_rc_20_wolfden" Label="Doggies" ToolTip="Warning will split even if u die at said split point. Splits when touching the bridge before the caged wolf area" State="false"/>
 		<Setting Id="rc_20_wolfden_sh_scavenger_hub_2" Label="Summit Forest" ToolTip="Splits when exiting the Summit Forest cave towards Shantytown." State="false"/>
 		<Setting Id="sh_scavenger_hub_2_tb_skub_to_kick_the_bucket" Label="Shantytown (South) (to Gondola)" ToolTip="Splits when exiting from the Shantytown via the gondola." State="false"/>
 		<Setting Id="tb_skub_to_kick_the_bucket_tb_to_beach" Label="Gondola Transport Hard Stop" ToolTip="Splits when the transport hard stops" State="false"/>
@@ -170,3 +170,6 @@
 		</Setting>
 	</Setting>
 </Settings>
+<!--
+<Setting Id="" Label="" ToolTip="" State="false"/>
+-->
