@@ -250,7 +250,7 @@ split
         }
 
         //1st camp
-        if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 520 && current.Camp == false && old.Camp == true && settings["First Skill"])
+        if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 520 && !current.Camp && settings["First Skill"])
         {
             vars.CompletedSplits.Add("First Skill");
             return true;
@@ -292,7 +292,7 @@ split
         }
     
         //campfire alt
-        if(current.level == "ww2_sos_01" && !vars.CompletedSplits.Contains("CampFireAlt") && current.FMV == 1 && old.FMV == 0 && settings["CampFireAlt"])
+        if(current.level == "ww2_sos_01" && !vars.CompletedSplits.Contains("CampFireAlt") && current.FMV && settings["CampFireAlt"])
         {
             vars.CompletedSplits.Add("CampFireAlt");
             return true;
