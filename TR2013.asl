@@ -165,9 +165,15 @@ update
             {
                 vars.CutsceneCounterForrest ++;
             }
+        } else if (settings["Gate"])
+        {
+            if(current.level == "ac_main" && !vars.CompletedSplits.Contains("Gate") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterForrest != 4)
+            {
+                vars.CutsceneCounterForrest ++;
+            }
         } else if (settings["VLADIMIR!"])
         {
-            if (current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterMountainClimb != 2)
+            if (current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue >= 520 && old.cutsceneValue == 8 && vars.CutsceneCounterMountainClimb != 3)
             {
                 vars.CutsceneCounterMountainClimb ++;
             }
@@ -263,8 +269,15 @@ split
             return true;
         }
 
+        //Gate
+        if(current.level == "ac_main" && !vars.CompletedSplits.Contains("Gate") && current.cutsceneValue == 520 && vars.CutsceneCounterForrest == 4 && settings["Gate"])
+        {
+            vars.CompletedSplits.Add("Gate");
+            return true;
+        }
+
         //vladimir dead
-        if(current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue == 520 && vars.CutsceneCounterMountainClimb == 2 && settings["VLADIMIR!"])
+        if(current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue >= 520 && vars.CutsceneCounterMountainClimb == 3 && settings["VLADIMIR!"])
         {
             vars.CompletedSplits.Add("VLADIMIR!");
             return true;
