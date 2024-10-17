@@ -354,7 +354,7 @@ split
         }
         
         //Grenade launcher, splits when getting the grenade launcher
-        if (current.level == "ge_04" && !vars.CompletedSplits.Contains("Grenade launcher") && current.GLA == 0 && old.GLA == 2 && current.cutsceneValue == 8 && settings["Grenade launcher"])
+        if (current.level == "ge_04" && !vars.CompletedSplits.Contains("Grenade launcher") && current.GLA == 0 && old.GLA == 2 && current.cutsceneValue == 520 && settings["Grenade launcher"])
         {
             vars.CompletedSplits.Add("Grenade launcher");
             return true;
