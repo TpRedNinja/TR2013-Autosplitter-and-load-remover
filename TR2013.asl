@@ -158,13 +158,18 @@ update
             }
         }
 
-        if (current.level == "ac_main" && current.cutsceneValue == 520 && old.cutsceneValue != 520) 
+        if (settings["3 wolves"])
         {
-            if (settings["3 wolves"] && !vars.CompletedSplits.Contains("3 wolves") && vars.CutsceneCounterForrest != 2) {
+            if (current.level == "ac_main" && !vars.CompletedSplits.Contains("3 wolves") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && vars.CutsceneCounterForrest != 2)
+            {
                 vars.CutsceneCounterForrest++;
             }
-            
-            if (settings["Gate"] && !vars.CompletedSplits.Contains("Gate") && vars.CutsceneCounterForrest != 4) {
+        }
+
+        if (settings["Gate"])
+        {
+            if (current.level == "ac_main" && !vars.CompletedSplits.Contains("Gate") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && vars.CutsceneCounterForrest != 4)
+            {
                 vars.CutsceneCounterForrest++;
             }
         }
@@ -293,7 +298,7 @@ split
         }
 
         //Wolves, splits when FMV at campfire ends
-        if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Wolves") && current.cutsceneValue == 521 && old.cutsceneValue == 520 && settings["Wolves"])
+        if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Wolves") && current.cutsceneValue == 521 && old.cutsceneValue != 521 && settings["Wolves"])
         {
             vars.CompletedSplits.Add("Wolves");
             return true;
@@ -410,12 +415,19 @@ split
             return true;
         }
 
-        //Dr James Whitman, Splits during Whitmans death cutscene
-        if (current.level == "chasm_entrance" && !vars.CompletedSplits.Contains("Dr James Whitman") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && settings["Dr James Whitman"])
+        if (vars.CompletedSplits.Contains("Samurai") || vars.CompletedSplits.Contains("Tools") 
+        || vars.CompletedSplits.Contains("Book") || vars.CompletedSplits.Contains("Alex who?") || vars.CompletedSplits.Contains("Mirror") ||
+        vars.CompletedSplits.Contains("Goaliath") || vars.CompletedSplits.Contains("Compound Bow") || vars.CompletedSplits.Contains("Where's Alex") ||
+        vars.CompletedSplits.Contains("Grenande launcher") || vars.CompletedSplits.Contains("Lara Hurt") || vars.CompletedSplits.Contains("Bell Cutscene"))
         {
-            vars.CompletedSplits.Add("Dr James Whitman");
-            return true;
+            //Dr James Whitman, Splits during Whitmans death cutscene
+            if (current.level == "chasm_entrance" && !vars.CompletedSplits.Contains("Dr James Whitman") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && settings["Dr James Whitman"])
+            {
+                vars.CompletedSplits.Add("Dr James Whitman");
+                return true;
+            }  
         }
+
 
         //Final split
         if(current.level == "qt_the_ritual" && old.cutsceneValue != 712 && current.cutsceneValue == 712 && settings["Mathias"])
