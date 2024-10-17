@@ -67,7 +67,7 @@
 		<Setting Id="ge_02_ge_02_a" Label="Doctor Whitman?" ToolTip="Splits when getting to cutscene with Doctor Whitman" State="false"/>
 		<Setting Id="ge_02_a_ge_03" Label="Weapons" ToolTip="Splits when getting your weapons back fight" State="false"/>
 		<Setting Id="ge_03_ge_04" Label="Burning room" ToolTip="Splits when you leave burning room of first fight" State="false"/>
-		<Setting Id="Grenade launcher" Label="Grenade launcher" ToolTip="Splits when you aquire the grenade launcher" State="false"/>
+		<Setting Id="Grenade launcher" Label="Grenade launcher" ToolTip="Splits during when lara attaches the grenade launcher to her rifle" State="false"/>
 		<Setting Id="ge_04_ge_06" Label="Grenade Launcher alt" ToolTip="Splits after blowing up the wall after getting the Grenade Launcher" State="false"/>
 		<Setting Id="ge_06_ge_07" Label="Sam" ToolTip="Splits when in the cutscene when sam picks up a pistol" State="false"/>
 		<Setting Id="ge_07_ge_08" Label="Solarii Fortress" ToolTip="Splits at gate with sam in Solarii Fortress" State="false"/>
