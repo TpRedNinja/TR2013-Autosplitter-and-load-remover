@@ -9,73 +9,73 @@
 //build743 case number [17892] 38739968 
 state("TombRaider", "Steam_743.0")
 {
-    bool FMV			: "binkw32.dll", 0x2830C; //Works on all versions but MS(Microsoft store)
+    bool FMV				: "binkw32.dll", 0x2830C; //Works on all versions but MS(Microsoft store)
     int cutsceneValue		: 0x211AB5C; //712 first cutscene then 520 then 8 for dragging cutscene, 520 in most cutscenes but 712 during final cutscene.
-    bool isLoading		: 0x1E33250; //True or False, True is 1 false is 0
-    int Camp               	: 0x10E7780; //True or False, True is 1 faalse is 0
+    bool isLoading			: 0x1E33250; //True or False, True is 1 false is 0
+    int Camp                : 0x10E7780; //True or False, True is 1 faalse is 0
 	
-    string50 level		: 0x1E28EA8; //detects level change
-    float Percentage            : 0x01D34A40, 0x24; //isint always up to date with the progression in the map an not everything makes it change
+	string50 level			: 0x1E28EA8; //detects level change
+    float Percentage        : 0x01D34A40, 0x24; //isint always up to date with the progression in the map an not everything makes it change
 	
-    byte newGameSelect		: 0x0211FEAC, 0x100, 0x24; //changes number base off the difficulty you choose 0 for easy(WHICH IS NOT ALLOWED EVER!) 1 for normal which is deult and 2 for hard this is how the newgameselect works DO NOT CHANGE!!!!
-    int saveSlot		: 0x0211FEAC, 0xFC, 0x24; //literally the saveslot number
+	byte newGameSelect		: 0x0211FEAC, 0x100, 0x24; //changes number base off the difficulty you choose 0 for easy(WHICH IS NOT ALLOWED EVER!) 1 for normal which is deult and 2 for hard this is how the newgameselect works DO NOT CHANGE!!!!
+	int saveSlot			: 0x0211FEAC, 0xFC, 0x24; //literally the saveslot number
 	
-    int GLA                 	: 0x2120684; // most of the time its null but eventually changes to -1 when ur close to getting the grenade launcher
-    int bowAmmo			: 0x21203F0; //bowAmmo
+	int GLA                 : 0x2120684; // most of the time its null but eventually changes to -1 when ur close to getting the grenade launcher
+    int bowAmmo				: 0x21203F0; //bowAmmo
 }
 
 //[17892] 38543360 
 state("TombRaider", "Steam_Current")
 {
-    bool FMV			: "binkw32.dll", 0x2830C;
+    bool FMV				: "binkw32.dll", 0x2830C;
     int cutsceneValue		: 0x20C97C0; 
-    bool isLoading		: 0x1DDBC51; //0x1CF7FE0 original
-    int Camp               	: 0x107DD50; 
+    bool isLoading			: 0x1DDBC51; //0x1CF7FE0 original
+    int Camp                : 0x107DD50; 
 	
-    string50 level		: 0x1DC18D8;
-    float Percentage         	: 0x01CDD540, 0x24; 
+	string50 level			: 0x1DC18D8;
+    float Percentage        : 0x01CDD540, 0x24; 
 	
-    byte newGameSelect		: 0x020CF83C, 0x100, 0x24; 
-    int saveSlot		: 0x020CF83C, 0xFC, 0x24; 
+	byte newGameSelect		: 0x020CF83C, 0x100, 0x24; 
+	int saveSlot			: 0x020CF83C, 0xFC, 0x24; 
 	
-    int GLA                 	: 0x20D0014;
-    int bowAmmo			: 0x20CFD80; 
+    int GLA                 : 0x20D0014;
+    int bowAmmo				: 0x20CFD80; 
 }
 
 //epic case number [17892] 38535168 
 state("TombRaider", "Epic")
 {
-    bool FMV			: "binkw32.dll", 0x2830C; 
+	bool FMV				: "binkw32.dll", 0x2830C; 
     int cutsceneValue		: 0x20C7DBC; 
-    bool isLoading		: 0x1CF6960;
-    int Camp               	: 0x107C870; 
+    bool isLoading			: 0x1CF6960;
+    int Camp                : 0x107C870; 
 	
-    string50 level		: 0x1DBF218;
-    float Percentage        	: 0x01CDBEC4, 0x24;
+	string50 level			: 0x1DBF218;
+    float Percentage        : 0x01CDBEC4, 0x24;
 	
-    byte newGameSelect		: 0x020CDF00, 0x100, 0x24;
-    int saveSlot		: 0x020CDF00, 0xFC, 0x24;
+	byte newGameSelect		: 0x020CDF00, 0x100, 0x24;
+	int saveSlot			: 0x020CDF00, 0xFC, 0x24;
 	
-    int GLA                 	: 0x20CE6E4;
-    int bowAmmo			: 0x20CE450;
+	int GLA                 : 0x20CE6E4;
+    int bowAmmo				: 0x20CE450;
 }
 
 //MS case number [29008] 60145664 
 state("TombRaider", "MS")
 {
-    bool FMV			: "binkw32.dll", 0x314CC; 
+	bool FMV				: "binkw32.dll", 0x314CC; 
     int cutsceneValue		: 0x34E4E18; //its very weird first cutscene isint 712 for whatever reason but final cutscene is.
-    bool isLoading		: 0x23C5A80;
-    int Camp               	: 0x25F87FC;
+    bool isLoading			: 0x23C5A80;
+    int Camp                : 0x25F87FC;
 	
-    string50 level		: 0x33E5190;
-    float Percentage        	: 0x033B05D0, 0x24; 
+	string50 level			: 0x33E5190;
+    float Percentage        : 0x033B05D0, 0x24; 
 	
-    byte newGameSelect		: 0x034EC6B8, 0x218, 0x28;
-    int saveSlot		: 0x034EC6B8, 0x210, 0x28;
+	byte newGameSelect		: 0x034EC6B8, 0x218, 0x28;
+	int saveSlot			: 0x034EC6B8, 0x210, 0x28;
     
-    int GLA                 	: 0x34ED0DC;
-    int bowAmmo			: 0x34ECD6C;
+    int GLA                 : 0x34ED0DC;
+    int bowAmmo				: 0x34ECD6C;
 }
 
 startup
@@ -90,7 +90,6 @@ startup
 
 
     vars.Helper.AlertLoadless();
-    
     
     // set text taken from Poppy Platime C2
     // to display the text associated with this script aka current percentage
@@ -142,50 +141,53 @@ init
 
 update
 {
-    current.Percentage = Math.Round(current.Percentage, 2);
-    
-    if (string.IsNullOrEmpty(current.level))
-    {
-        current.level = old.level;
-    }
-    
-    if(settings["percentage display"])
-    {
-
-        vars.SetTextComponent("Percentage Completion", "N/A");
-        if (current.Percentage != null)
+        current.Percentage = Math.Round(current.Percentage, 2);
+        
+        if (string.IsNullOrEmpty(current.level))
         {
-        vars.SetTextComponent("Percentage Completion", current.Percentage + "%");
+            current.level = old.level;
         }
-    }
+        
+        if(settings["percentage display"])
+        {
 
-        if (settings["3 wolves"])
-        {
-            if(current.level == "ac_main" && !vars.CompletedSplits.Contains("3 wolves") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterForrest != 2)
+            vars.SetTextComponent("Percentage Completion", "N/A");
+            if (current.Percentage != null)
             {
-                vars.CutsceneCounterForrest ++;
+            vars.SetTextComponent("Percentage Completion", current.Percentage + "%");
             }
-        } else if (settings["Gate"])
+        }
+
+        if (current.level == "ac_main" && current.cutsceneValue == 520 && old.cutsceneValue != 520) 
         {
-            if(current.level == "ac_main" && !vars.CompletedSplits.Contains("Gate") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterForrest != 4)
-            {
-                vars.CutsceneCounterForrest ++;
+            if (settings["3 wolves"] && !vars.CompletedSplits.Contains("3 wolves") && vars.CutsceneCounterForrest != 2) {
+                vars.CutsceneCounterForrest++;
             }
-        } else if (settings["VLADIMIR!"])
+            
+            if (settings["Gate"] && !vars.CompletedSplits.Contains("Gate") && vars.CutsceneCounterForrest != 4) {
+                vars.CutsceneCounterForrest++;
+            }
+        }
+
+        if (settings["VLADIMIR!"])
         {
             if (current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue >= 520 && old.cutsceneValue == 8 && vars.CutsceneCounterMountainClimb != 3)
             {
                 vars.CutsceneCounterMountainClimb ++;
             }
             
-        } else if (settings["SOS"])
+        }
+
+        if (settings["SOS"])
         {
             if (current.level == "ww2sos_04" && !vars.CompletedSplits.Contains("SOS") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterBaseExterior != 3)
             {
                 vars.CutsceneCounterBaseExterior ++;
             }
             
-        } else if (settings["Lara Hurt"])
+        }
+
+        if (settings["Lara Hurt"])
         {
             if (current.level == "de_descent_to_scav_hub_connector" && !vars.CompletedSplits.Contains("Lara Hurt") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterMountainDecent != 2)
             {
@@ -347,7 +349,7 @@ split
         }
         
         //Grenade launcher, splits when getting the grenade launcher
-        if (current.level == "ge_04" && !vars.CompletedSplits.Contains("Grenade launcher") && (current.GLA == 2 || current.GLA == 0) && current.cutsceneValue == 8 && settings["Grenade launcher"])
+        if (current.level == "ge_04" && !vars.CompletedSplits.Contains("Grenade launcher") && current.GLA == 0 && old.GLA == 2 && current.cutsceneValue == 8 && settings["Grenade launcher"])
         {
             vars.CompletedSplits.Add("Grenade launcher");
             return true;
