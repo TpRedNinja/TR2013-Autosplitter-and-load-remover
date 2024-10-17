@@ -56,7 +56,7 @@
 		<Setting Id="sh_scavenger_hub_sh_scavenger_hub_2" Label="Shantytown (North)" ToolTip="Splits when Lara goes through the gate to the southern part of Shantytown." State="false"/>
 		<Setting Id="sh_scavenger_hub_2_sh_scavenger_hub_to_geothermal_connector" Label="Shantytown (South) (to Geothermal Caverns)" ToolTip="Splits after leaving Shantytown to go into the Geothermal Caverns." State="false"/>
 		<Setting Id="sh_scavenger_hub_to_geothermal_connector_bi_entrance" Label="Shantytown (South) (to Geothermal Caverns) later" ToolTip="Splits after leaving Shantytown to go into the Geothermal Caverns. After the water." State="false"/>
-		<Setting Id="bi_entrance_bi_ceremony" Label="Sam Trial of Fire" ToolTip="Splits when trial of fire for sam cutscene starts playing" State="false"/>
+		<Setting Id="bi_entrance_bi_ceremony" Label="Sam Trial of Fire" ToolTip="Splits when right before when sam has her trial of fire cutscene" State="false"/>
 		<Setting Id="bi_ceremony_bi_pit" Label="Blood Bath" ToolTip="Splits when lara leaves the blood pool" State="false"/>
 		<Setting Id="bi_pit_bi_catacombs" Label="Canabals" ToolTip="Splits when leaving the mini puzzle area with the canabals" State="false"/>
 		<Setting Id="bi_catacombs_bi_altar_room" Label="A Ceremony" ToolTip="Splits when getting to Cermony room" State="false"/>
@@ -107,12 +107,12 @@
 		<Setting Id="ptboat_cine_chasm_entrance" Label="Bye Reyes bye Jonah" ToolTip="Splits after the unskippable cutscene" State="false"/>
 		<Setting Id="Dr James Whitman" Label="Dr James Whitman" ToolTip="Splits during whitman death cutscene" State="false"/>
 		<Setting Id="chasm_entrance_mb_eatery" Label="shit ton of guards time" ToolTip="Splits when entering the chasm Monastery via the window" State="false"/>
-		<Setting Id="mb_eastery_mb_readyroom" Label="Goaliath Armor" ToolTip="Splits when entering the Goaliath Armor room" State="false"/>
+		<Setting Id="mb_eatery_mb_readyroom" Label="Goaliath Armor" ToolTip="Splits when entering the Goaliath Armor room" State="false"/>
 		<Setting Id="mb_readyroom_chasm_streamhall_01" Label="Lara Discovered" ToolTip="Splits when Lara gets discovered in the goaliath armor room" State="false"/>
 		<Setting Id="chasm_streamhall_01_mb_candlehall_combat" Label="Mini Slide" ToolTip="Splits after awkward camera angle run and going down the slide" State="false"/>
 		<Setting Id="mb_candlehall_combat_chasm_streamhall_02" Label="3 Oni and 1 Girl" ToolTip="Splits when you get to the day camp after the 3 Oni" State="false"/>
 		<Setting Id="chasm_streamhall_02_chasm_bridge" Label="Big Fight" ToolTip="Splits when openning the door to windy area" State="false"/>
-		<Setting Id="chasm_bridge_qt_pre_stalker_arena" Label="Chasm Stronghold" ToolTip="Splits after crossing the bridge following the big fight." State="false"/>
+		<Setting Id="chasm_bridge_qt_pre_stalker_arena" Label="Chasm Stronghold" ToolTip="Splits when entering the next area after the bridge cutscene with goaliath." State="false"/>
 		<Setting Id="qt_pre_stalker_arena_qt_stalkerfight" Label="Chasm Shrine puzzle room time" ToolTip="Splits when entering the puzzle room" State="false"/>
 		<Setting Id="qt_stalkerfight_qt_hall_of_queens" Label="Lara Realizes" ToolTip="Splits when entering the room where Lara realizes Mathias purpose for all this" State="false"/>
 		<Setting Id="qt_hall_of_queens_qt_trial_by_fire" Label="Point of no Return" ToolTip="Splits when getting to the point of no return cutscene" State="false"/>
