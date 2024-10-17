@@ -411,7 +411,7 @@ split
         }
 
         //Dr James Whitman, Splits during Whitmans death cutscene
-        if (current.level == "chasm_entrance" && !vars.CompletedSplits.Contains("Dr James Whitman") && current.cutsceneValue == 520 && settings["Dr James Whitman"])
+        if (current.level == "chasm_entrance" && !vars.CompletedSplits.Contains("Dr James Whitman") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && settings["Dr James Whitman"])
         {
             vars.CompletedSplits.Add("Dr James Whitman");
             return true;
