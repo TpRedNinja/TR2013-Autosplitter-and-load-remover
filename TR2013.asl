@@ -31,7 +31,7 @@ state("TombRaider", "Steam_Current")
     bool FMV				: "binkw32.dll", 0x2830C;
     int cutsceneValue		: 0x20C97C0; 
     bool isLoading			: 0x1DDBC51; //0x1CF7FE0 original
-    int Camp                : 0x107DD50; 
+    int Camp                : 0x107DD60; 
 	
 	string50 level			: 0x1DC18D8;
     float Percentage        : 0x01CDD540, 0x24; 
@@ -165,7 +165,7 @@ update
         {
             if (current.level == "ac_main" && !vars.CompletedSplits.Contains("3 wolves") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && vars.CutsceneCounterForrest != 2)
             {
-                vars.CutsceneCounterForrest++;
+                vars.CutsceneCounterForrest ++;
             }
         }
 
@@ -186,6 +186,7 @@ update
             }
             
         }   
+
 }
 
 start
@@ -261,12 +262,12 @@ split
             return true;
         }
 
-        //Gate
+        /*Gate
         if(current.level == "ac_main" && !vars.CompletedSplits.Contains("Gate") && current.cutsceneValue == 520 && current.Percentage >= 6.52 && settings["Gate"])
         {
             vars.CompletedSplits.Add("Gate");
             return true;
-        }
+        }*/
 
         //vladimir dead
         if(current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue == 520 && (current.Ammo == 0 || (current.bowAmmo == 0  && (current.Ammo == 1 || current.Ammo == 2))) && settings["VLADIMIR!"])
@@ -339,7 +340,7 @@ split
         }
         
         //Grenade launcher, splits when getting the grenade launcher
-        if (current.level == "ge_04" && !vars.CompletedSplits.Contains("Grenade launcher") && current.GLA == 0 && old.GLA == 2 && current.cutsceneValue == 520 && settings["Grenade launcher"])
+        if (current.level == "ge_04" && !vars.CompletedSplits.Contains("Grenade launcher") && current.GLA == 0 && old.GLA != current.GLA && current.cutsceneValue >= 520 && settings["Grenade launcher"])
         {
             vars.CompletedSplits.Add("Grenade launcher");
             return true;
@@ -401,7 +402,7 @@ split
         }
 
         //Dr James Whitman, Splits during Whitmans death cutscene
-        if (current.level == "chasm_entrance" && !vars.CompletedSplits.Contains("Dr James Whitman") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && settings["Dr James Whitman"] && current.GLA > -1)
+        if (current.level == "chasm_entrance" && !vars.CompletedSplits.Contains("Dr James Whitman") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && settings["Dr James Whitman"] && current.GLA > 0)
         {
             vars.CompletedSplits.Add("Dr James Whitman");
             return true;
@@ -425,7 +426,7 @@ isLoading
         } else if (current.bowAmmo == -1 || current.isLoading || current.FMV)
         {
             return true;
-        } else if (current.cutsceneValue >= 520 && (current.bowAmmo == -1 || current.isLoading == false || current.FMV == false) && current.level != "main_menu")
+        } else if (current.cutsceneValue >= 520 && (current.bowAmmo == -1 || !current.isLoading || !current.FMV) && current.level != "main_menu")
         {
             return true;
         } else
