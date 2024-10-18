@@ -51,7 +51,7 @@
 		<Setting Id="vh_main_vh_vhmain_to_descent_connector" Label="Mountain Village 3" ToolTip="Splits when going down the zipline to get to waterfall before parachute " State="false"/>
 		<Setting Id="vh_vhmain_to_descent_connector_de_descent" Label="Time for water slide" ToolTip="Splits right before entering the water" State="false"/>
 		<Setting Id="de_descent_de_descent_to_scav_hub_connector" Label="Time for Parachute" ToolTip="Splits when getting the parachute" State="false"/>
-		<Setting Id="Lara Hurt" Label="Lara Hurt (Cutscene)" ToolTip="Splits after lara looses her parachute and the cutscene starts playing" State="false"/>
+		<Setting Id="Lara Hurt" Label="Lara Hurt " ToolTip="Splits after lara looses her parachute and the cutscene starts playing" State="false"/>
 		<Setting Id="de_descent_to_scav_hub_connector_sh_scavenger_hub" Label="Mountain Descent" ToolTip="Splits after completing the parachute QTE when entering the Shantytown." State="false"/>
 		<Setting Id="sh_scavenger_hub_sh_scavenger_hub_2" Label="Shantytown (North)" ToolTip="Splits when Lara goes through the gate to the southern part of Shantytown." State="false"/>
 		<Setting Id="sh_scavenger_hub_2_sh_scavenger_hub_to_geothermal_connector" Label="Shantytown (South) (to Geothermal Caverns)" ToolTip="Splits after leaving Shantytown to go into the Geothermal Caverns." State="false"/>
@@ -67,7 +67,7 @@
 		<Setting Id="ge_02_ge_02_a" Label="Doctor Whitman?" ToolTip="Splits when getting to cutscene with Doctor Whitman" State="false"/>
 		<Setting Id="ge_02_a_ge_03" Label="Weapons" ToolTip="Splits when getting your weapons back fight" State="false"/>
 		<Setting Id="ge_03_ge_04" Label="Burning room" ToolTip="Splits when you leave burning room of first fight" State="false"/>
-		<Setting Id="Grenade launcher" Label="Grenade launcher(cutscene)" ToolTip="Splits during when lara attaches the grenade launcher to her rifle" State="false"/>
+		<Setting Id="Grenade launcher" Label="Grenade launcher" ToolTip="Splits during when lara attaches the grenade launcher to her rifle" State="false"/>
 		<Setting Id="ge_04_ge_06" Label="Grenade Launcher alt" ToolTip="Splits after blowing up the wall after getting the Grenade Launcher" State="false"/>
 		<Setting Id="ge_06_ge_07" Label="Sam" ToolTip="Splits when in the cutscene when sam picks up a pistol" State="false"/>
 		<Setting Id="ge_07_ge_08" Label="Solarii Fortress" ToolTip="Splits at gate with sam in Solarii Fortress" State="false"/>
@@ -80,32 +80,32 @@
 		<Setting Id="sh_scavenger_hub_2_tb_skub_to_kick_the_bucket" Label="Shantytown (South) (to Gondola)" ToolTip="Splits when exiting from the Shantytown via the gondola." State="false"/>
 		<Setting Id="tb_skub_to_kick_the_bucket_tb_to_beach" Label="Gondola Transport Hard Stop" ToolTip="Splits when the transport hard stops" State="false"/>
 		<Setting Id="tb_to_beach_tb_to_beach_to_beach_hub_connector" Label="Gondola Transport" ToolTip="Splits after completing the gondola QTE and falling into the river at the bottom." State="false"/>
-		<Setting Id="Where's Alex" Label="Where's Alex(cutscene)" ToolTip="Splits during the cutscene where you reunite with the crew on the beach" State="false"/>
-		<Setting Id="Compound bow" Label="Compound bow(cutscene)" ToolTip="Splits during the cutscene when Jonnah gives you the Compound bow" State="false"/>
+		<Setting Id="Where's Alex" Label="Where's Alex" ToolTip="Splits during the cutscene where you reunite with the crew on the beach" State="false"/>
+		<Setting Id="Compound bow" Label="Compound bow" ToolTip="Splits during the cutscene when Jonnah gives you the Compound bow" State="false"/>
 		<Setting Id="bh_beach_hub_sb_01" Label="Shipwreck Beach (to Cliffside Bunker)" ToolTip="Splits when leaving the beach towards the bunker." State="false"/>
 		<Setting Id="sb_05_sb_15" Label="WW2 Base to Endurance" ToolTip="Splits when dropping down to the Endurance" State="false"/>
-		<Setting Id="Goaliath" Label="Goaliath boss(cutscene)" ToolTip="Splits when getting the rope ascender cutscene" State="false"/>
+		<Setting Id="Goaliath" Label="Goaliath boss" ToolTip="Splits when getting the rope ascender cutscene" State="false"/>
 		<Setting Id="sb_15_sb_16" Label="Goaliath Done" ToolTip="Splits when dropping down the hole in the endurance" State="false"/>
-		<Setting Id="Mirror" Label="Mirror(cutscene)" ToolTip="Splits during the cutscene with lara looking herself in the mirror on the endurance" State="false"/>
+		<Setting Id="Mirror" Label="Mirror" ToolTip="Splits during the cutscene with lara looking herself in the mirror on the endurance" State="false"/>
 		<Setting Id="sb_16_sb_20" Label="2nd half of endurance time" ToolTip="Splits when dropping the hole in the 2nd half of the endurance" State="false"/>
-		<Setting Id="Alex who?" Label="Alex who?(cutscene)" ToolTip="Splits during alex death cutscene" State="false"/>
-		<Setting Id="sb_20_sb_21" Label="Alex is Dead(cutscene)" ToolTip="Splits after alex death cutscene" State="false"/>
+		<Setting Id="Alex who?" Label="Alex who?" ToolTip="Splits during alex death cutscene" State="false"/>
+		<Setting Id="sb_20_sb_21" Label="Alex is Dead" ToolTip="Splits after alex death cutscene" State="false"/>
 		<Setting Id="sb_21_sb_15" Label="Endurance(early)" ToolTip="Splits while lara is leaving the 2nd half of the endurance" State="false"/>
 		<Setting Id="sb_15_sb_05" Label="Endurance(later)" ToolTip="Splits when leaving the Endurance area" State="false"/>
-		<Setting Id="Book" Label="Book(cutscene)" ToolTip="Splits during the book cutscene" State="false"/>
+		<Setting Id="Book" Label="Book" ToolTip="Splits during the book cutscene" State="false"/>
 		<Setting Id="sb_01_bh_beach_hub" Label="Cliffside Bunker" ToolTip="Splits when leaving the bunker towards the beach." State="false"/>
-		<Setting Id="Tools" Label="Tools(cutscene)" ToolTip="Splits during the cutscene when lara gives Ryes the tools" State="false"/>
+		<Setting Id="Tools" Label="Tools" ToolTip="Splits during the cutscene when lara gives Ryes the tools" State="false"/>
 		<Setting Id="bh_beach_hub_si_05_bunker_to_research_connector" Label="Shipwreck Beach (to Research Base)" ToolTip="Splits when jumping down into the Research Base." State="false"/>
 		<Setting Id="si_05_bunker_to_research_connector_si_10_research" Label="2 Enemies time" ToolTip="Splits when getting near the campfire with the 2 enemies" State="false"/>
 		<Setting Id="si_10_research_si_15_elevator" Label="Elevator puzzle time" ToolTip="Splits when getting to elevator puzzle" State="false"/>
 		<Setting Id="si_15_elevator_si_20_machinery" Label="Elevator puzzle done" ToolTip="Splits when you leave the elevator puzzle area" State="false"/>
 		<Setting Id="si_20_machinery_si_25_tomb" Label="Time for annoying ass fight" ToolTip="Splits when you enter the annoying ass fight area" State="false"/>
-		<Setting Id="Samurai" Label="Samurai(cutscene)" ToolTip="Splits on Samurai cutscene in Reasearch base" State="false"/>
+		<Setting Id="Samurai" Label="Samurai" ToolTip="Splits on Samurai cutscene in Reasearch base" State="false"/>
 		<Setting Id="si_25_tomb_si_30_tomb_to_bh_connector" Label="Research Base Early" ToolTip="Splits when leaving Reasearch Base (Early version)" State="false"/>
 		<Setting Id="si_30_tomb_to_bh_connector_bh_beach_hub" Label="Reasearch Base" ToolTip="Splits when leaving reasearch base" State="false"/>
 		<Setting Id="bh_beach_hub_ptboat_cine" Label="Shipwreck Beach (Boat to Mountain Pass)" ToolTip="Splits after departing down the river from the beach with Reyes and Jonah." State="false"/>
 		<Setting Id="ptboat_cine_chasm_entrance" Label="Bye Reyes bye Jonah" ToolTip="Splits after the unskippable cutscene" State="false"/>
-		<Setting Id="Dr James Whitman" Label="Dr James Whitman(cuitscene)" ToolTip="Splits during whitman death cutscene. Use with any split thats has (cutscene) after its name" State="false"/>
+		<Setting Id="Dr James Whitman" Label="Dr James Whitman" ToolTip="Splits during whitman death cutscene" State="false"/>
 		<Setting Id="chasm_entrance_mb_eatery" Label="shit ton of guards time" ToolTip="Splits when entering the chasm Monastery via the window" State="false"/>
 		<Setting Id="mb_eatery_mb_readyroom" Label="Goaliath Armor" ToolTip="Splits when entering the Goaliath Armor room" State="false"/>
 		<Setting Id="mb_readyroom_chasm_streamhall_01" Label="Lara Discovered" ToolTip="Splits when Lara gets discovered in the goaliath armor room" State="false"/>
