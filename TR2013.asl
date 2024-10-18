@@ -22,6 +22,7 @@ state("TombRaider", "Steam_743.0")
 	
 	int GLA                 : 0x2120684; // most of the time its null but eventually changes to -1 when ur close to getting the grenade launcher
     int bowAmmo				: 0x21203F0; //bowAmmo
+    int Ammo                : 0x2120670; //All ammo's
 }
 
 //[17892] 38543360 
@@ -40,6 +41,7 @@ state("TombRaider", "Steam_Current")
 	
     int GLA                 : 0x20D0014;
     int bowAmmo				: 0x20CFD80; 
+    int Ammo                : 0x20D0000;
 }
 
 //epic case number [17892] 38535168 
@@ -58,6 +60,7 @@ state("TombRaider", "Epic")
 	
 	int GLA                 : 0x20CE6E4;
     int bowAmmo				: 0x20CE450;
+    int Ammo                : 0x20CE6D0;
 }
 
 //MS case number [29008] 60145664 
@@ -76,6 +79,7 @@ state("TombRaider", "MS")
     
     int GLA                 : 0x34ED0DC;
     int bowAmmo				: 0x34ECD6C;
+    int Ammo                : 0x34ED0C8;
 }
 
 startup
@@ -84,7 +88,6 @@ startup
     vars.Helper.Settings.CreateFromXml("Components/TR2013.Settings.xml");
     vars.CompletedSplits = new HashSet<string>();
     vars.CutsceneCounterForrest = 0;
-    vars.CutsceneCounterMountainClimb = 0;
     vars.CutsceneCounterBaseExterior = 0;
     vars.CutsceneCounterMountainDecent = 0;
 
@@ -166,23 +169,6 @@ update
             }
         }
 
-        if (settings["Gate"])
-        {
-            if (current.level == "ac_main" && !vars.CompletedSplits.Contains("Gate") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && vars.CutsceneCounterForrest != 4)
-            {
-                vars.CutsceneCounterForrest++;
-            }
-        }
-
-        if (settings["VLADIMIR!"])
-        {
-            if (current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue >= 520 && old.cutsceneValue == 8 && vars.CutsceneCounterMountainClimb != 3)
-            {
-                vars.CutsceneCounterMountainClimb ++;
-            }
-            
-        }
-
         if (settings["SOS"])
         {
             if (current.level == "ww2sos_04" && !vars.CompletedSplits.Contains("SOS") && current.cutsceneValue == 520 && old.cutsceneValue != 520 && vars.CutsceneCounterBaseExterior != 3)
@@ -200,7 +186,6 @@ update
             }
             
         }   
-
 }
 
 start
@@ -277,14 +262,14 @@ split
         }
 
         //Gate
-        if(current.level == "ac_main" && !vars.CompletedSplits.Contains("Gate") && current.cutsceneValue == 520 && vars.CutsceneCounterForrest == 4 && settings["Gate"])
+        if(current.level == "ac_main" && !vars.CompletedSplits.Contains("Gate") && current.cutsceneValue == 520 && current.Percentage >= 6.52 && settings["Gate"])
         {
             vars.CompletedSplits.Add("Gate");
             return true;
         }
 
         //vladimir dead
-        if(current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue >= 520 && vars.CutsceneCounterMountainClimb == 3 && settings["VLADIMIR!"])
+        if(current.level == "mountain_climb" && !vars.CompletedSplits.Contains("VLADIMIR!") && current.cutsceneValue == 520 && (current.Ammo == 0 || (current.bowAmmo == 0  && (current.Ammo == 1 || current.Ammo == 2))) && settings["VLADIMIR!"])
         {
             vars.CompletedSplits.Add("VLADIMIR!");
             return true;
@@ -415,18 +400,12 @@ split
             return true;
         }
 
-        if (vars.CompletedSplits.Contains("Samurai") || vars.CompletedSplits.Contains("Tools") 
-        || vars.CompletedSplits.Contains("Book") || vars.CompletedSplits.Contains("Alex who?") || vars.CompletedSplits.Contains("Mirror") ||
-        vars.CompletedSplits.Contains("Goaliath") || vars.CompletedSplits.Contains("Compound Bow") || vars.CompletedSplits.Contains("Where's Alex") ||
-        vars.CompletedSplits.Contains("Grenande launcher") || vars.CompletedSplits.Contains("Lara Hurt") || vars.CompletedSplits.Contains("Bell Cutscene"))
+        //Dr James Whitman, Splits during Whitmans death cutscene
+        if (current.level == "chasm_entrance" && !vars.CompletedSplits.Contains("Dr James Whitman") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && settings["Dr James Whitman"] && Current.GLA > -1)
         {
-            //Dr James Whitman, Splits during Whitmans death cutscene
-            if (current.level == "chasm_entrance" && !vars.CompletedSplits.Contains("Dr James Whitman") && current.cutsceneValue == 520 && old.cutsceneValue == 8 && settings["Dr James Whitman"])
-            {
-                vars.CompletedSplits.Add("Dr James Whitman");
-                return true;
-            }  
-        }
+            vars.CompletedSplits.Add("Dr James Whitman");
+            return true;
+        }  
 
 
         //Final split
@@ -446,7 +425,7 @@ isLoading
         } else if (current.bowAmmo == -1 || current.isLoading || current.FMV)
         {
             return true;
-        } else if (current.cutsceneValue >= 520 && (current.bowAmmo == -1 || current.isLoading == false || current.FMV == false && current.level != "main"))
+        } else if (current.cutsceneValue >= 520 && (current.bowAmmo == -1 || current.isLoading == false || current.FMV == false) && current.level != "main_menu")
         {
             return true;
         } else
@@ -474,7 +453,6 @@ onReset
 {
     vars.CompletedSplits.Clear();
     vars.CutsceneCounterForrest = 0;
-    vars.CutsceneCounterMountainClimb = 0;
     vars.CutsceneCounterBaseExterior = 0;
     vars.CutsceneCounterMountainDecent = 0;
 }
