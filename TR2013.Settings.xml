@@ -10,7 +10,7 @@
 		<Setting Id="First Skill" Label="First Skill" ToolTip="Splits during the cutscene after you aquire your first skill" State="false"/>
 		<Setting Id="ac_bunker_ac_main" Label="Coastal Forest (South)" ToolTip="Splits when Lara climbs the ladder of the bunker." State="false"/>
 		<Setting Id="3 wolves" Label="3 wolves" ToolTip="Splist during the cutscene after the 3 wolves qte" State="false"/>
-		<Setting Id="Gate" Label="Gate" ToolTip="Splits during the cutscene with the gate slowly coming down on whitman and lara" State="false"/>
+		<!--<Setting Id="Gate" Label="Gate" ToolTip="Splits during the cutscene with the gate slowly coming down on whitman and lara" State="false"/>-->
 		<Setting Id="ac_main_connector_acmain_to_mountainclimb_a" Label="Costal Forest (North) earlier" ToolTip="Splits after gate cutscene" State="false"/>
 		<Setting Id="connector_acmain_to_mountainclimb_a_mountain_climb" Label="Coastal Forest (North)" ToolTip="Splits after the cutscene of Lara getting captured after Whitman Skip." State="false"/>
 		<Setting Id="VLADIMIR!" Label="VLADIMIR!" ToolTip="Splits during the cutscene when Vladimir is dying" State="false"/>
