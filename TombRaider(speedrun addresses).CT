@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"Steam build_743.0"</Description>
+      <Options moHideChildren="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"FMV"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"binkw32.dll"+2830C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"loading"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>"TombRaider.exe"+1E33250</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"cutscene"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+211AB5C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"skippablecutscene"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+176F070</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>183</ID>
+          <Description>"Camp"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+10E7780</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Level"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>50</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>"TombRaider.exe"+1E28EA8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>109</ID>
+          <Description>"Percentage"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>"TombRaider.exe"+01D34A40</Address>
+          <Offsets>
+            <Offset>24</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"newgameselect"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+0211FEAC</Address>
+          <Offsets>
+            <Offset>24</Offset>
+            <Offset>100</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"saveslot"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+0211FEAC</Address>
+          <Offsets>
+            <Offset>24</Offset>
+            <Offset>FC</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>178</ID>
+          <Description>"Grenade Launcher Ammo"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+2120684</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>"bowammo"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+21203F0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>228</ID>
+          <Description>"Ammo"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+2120670</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>104</ID>
+          <Description>"Extras"</Description>
+          <Options moHideChildren="1"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>110</ID>
+              <Description>"Percentage 2"</Description>
+              <VariableType>Float</VariableType>
+              <Address>"TombRaider.exe"+01D34A44</Address>
+              <Offsets>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>187</ID>
+              <Description>"No description"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>TombRaider.exe+10E7790</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>107</ID>
+      <Description>"GOG"</Description>
+      <Options moHideChildren="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>115</ID>
+          <Description>"FMV"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"binkw32.dll"+2830C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>116</ID>
+          <Description>"cutscene"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+211AB5C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>117</ID>
+          <Description>"skippablecutscene"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+176F070</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>118</ID>
+          <Description>"loading"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>"TombRaider.exe"+1E33250</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>119</ID>
+          <Description>"Level"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>50</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>"TombRaider.exe"+1E28EA8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>120</ID>
+          <Description>"Percentage"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>"TombRaider.exe"+01D34A40</Address>
+          <Offsets>
+            <Offset>24</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>121</ID>
+          <Description>"newgameselect"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+0211FEAC</Address>
+          <Offsets>
+            <Offset>24</Offset>
+            <Offset>100</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>122</ID>
+          <Description>"saveslot"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+0211FEAC</Address>
+          <Offsets>
+            <Offset>24</Offset>
+            <Offset>FC</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>179</ID>
+          <Description>"Grenade Launcher Ammo"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+2120684</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>123</ID>
+          <Description>"bowammo"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+21203F0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>124</ID>
+          <Description>"Extras"</Description>
+          <Options moHideChildren="1"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>125</ID>
+              <Description>"Percentage 2"</Description>
+              <VariableType>Float</VariableType>
+              <Address>"TombRaider.exe"+01D34A44</Address>
+              <Offsets>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"steam latest version"</Description>
+      <Options moHideChildren="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"FMV"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"binkw32.dll"+2830C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>101</ID>
+          <Description>"Loading"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>TombRaider.exe+1DDBC51</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"cutscene"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+20C97C0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>130</ID>
+          <Description>"Skippable cutscene"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+1713B30</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>200</ID>
+          <Description>"Camp"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+107DD60</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"Level"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>50</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>TombRaider.exe+1DC18D8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>113</ID>
+          <Description>"Percentage"</Description>
+          <VariableType>Float</VariableType>
+          <Address>"TombRaider.exe"+01CDD540</Address>
+          <Offsets>
+            <Offset>24</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>18</ID>
+          <Description>"newgameselect"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe" + 020CF83C</Address>
+          <Offsets>
+            <Offset>24</Offset>
+            <Offset>100</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"saveslot"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+020CF83C</Address>
+          <Offsets>
+            <Offset>24</Offset>
+            <Offset>FC</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>193</ID>
+          <Description>"Grenade launcher ammo"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+20D0014</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"Bow Ammo"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+20CFD80</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>229</ID>
+          <Description>"Ammo"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+20D0000</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>102</ID>
+          <Description>"Extras"</Description>
+          <Options moHideChildren="1"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>114</ID>
+              <Description>"Percentage 2"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>"TombRaider.exe"+01CDEC40</Address>
+              <Offsets>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>100</ID>
+              <Description>"Loading"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>TombRaider.exe+1CF7FE0</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>17</ID>
+      <Description>"Epic"</Description>
+      <Options moHideChildren="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>33</ID>
+          <Description>"FMV"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"binkw32.dll"+2830C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>180</ID>
+          <Description>"Isloading"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe" + 1CF6960</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>50</ID>
+          <Description>"cutscene"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+20C7DBC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>139</ID>
+          <Description>"Skippable cutscene"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+1712500</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>209</ID>
+          <Description>"Camp"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+107C870</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>44</ID>
+          <Description>"Level"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>50</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>TombRaider.exe+1DBF218</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>128</ID>
+          <Description>"Percentage"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>"TombRaider.exe"+01CDBEC4</Address>
+          <Offsets>
+            <Offset>24</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>53</ID>
+          <Description>"NewGameSelect"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+020CDF00</Address>
+          <Offsets>
+            <Offset>24</Offset>
+            <Offset>100</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>54</ID>
+          <Description>"Saveslot"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+020CDF00</Address>
+          <Offsets>
+            <Offset>24</Offset>
+            <Offset>FC</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>206</ID>
+          <Description>"Grenade launcher ammo"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+20CE6E4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>48</ID>
+          <Description>"BowAmmo"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+20CE450</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>49</ID>
+          <Description>"ammo"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+20CE6D0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>36</ID>
+          <Description>"Extras"</Description>
+          <Options moHideChildren="1"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>129</ID>
+              <Description>"Percentage 2"</Description>
+              <VariableType>Float</VariableType>
+              <Address>"TombRaider.exe"+01CDD5C0</Address>
+              <Offsets>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>213</ID>
+              <Description>"No description"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>TombRaider.exe+107C880</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>60</ID>
+      <Description>"Microsoft store"</Description>
+      <Options moHideChildren="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>160</ID>
+          <Description>"FMV"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>binkw64.dll+314CC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>155</ID>
+          <Description>"Loading"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+23C5A80</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>172</ID>
+          <Description>"Cutscene"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+34E4E18</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>169</ID>
+          <Description>"Skippable Cutscene"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+190A7BC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>222</ID>
+          <Description>"Camp"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+25F87FC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>146</ID>
+          <Description>"Level"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>String</VariableType>
+          <Length>50</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>TombRaider.exe+33E5190</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>173</ID>
+          <Description>"Percentage"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>"TombRaider.exe"+033B05D0</Address>
+          <Offsets>
+            <Offset>24</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>174</ID>
+          <Description>"NewGameSelect"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+034EC6B8</Address>
+          <Offsets>
+            <Offset>28</Offset>
+            <Offset>218</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>177</ID>
+          <Description>"Saveslot"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"TombRaider.exe"+034EC6B8</Address>
+          <Offsets>
+            <Offset>28</Offset>
+            <Offset>210</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>219</ID>
+          <Description>"Grenade Launcher Ammo"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+34ED0DC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>149</ID>
+          <Description>"Bow ammo"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+34ECD6C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>227</ID>
+          <Description>"Ammo"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>TombRaider.exe+34ED0C8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>148</ID>
+          <Description>"Extra"</Description>
+          <Options moHideChildren="1"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>156</ID>
+              <Description>"Loading?"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>TombRaider.exe+34035BC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>226</ID>
+              <Description>"No description"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>TombRaider.exe+25F880C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>161</ID>
+              <Description>"FMV"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>binkw64.dll+315CC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>162</ID>
+              <Description>"FMV"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>binkw64.dll+5703C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>163</ID>
+              <Description>"FMV"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>binkw64.dll+57048</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>164</ID>
+              <Description>"FMV"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>binkw64.dll+5704C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>165</ID>
+              <Description>"FMV"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>binkw64.dll+57050</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>166</ID>
+              <Description>"FMV"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>binkw64.dll+57054</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>167</ID>
+              <Description>"FMV"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>binkw64.dll+570A0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>168</ID>
+              <Description>"FMV"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>binkw64.dll+570B4</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>230</ID>
+      <Description>"X"</Description>
+      <ShowAsSigned>1</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>"TombRaider.exe"+00A788F0</Address>
+      <Offsets>
+        <Offset>0</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>231</ID>
+      <Description>"Y"</Description>
+      <ShowAsSigned>1</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>"TombRaider.exe"+00A788F0</Address>
+      <Offsets>
+        <Offset>4</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>232</ID>
+      <Description>"Z"</Description>
+      <ShowAsSigned>1</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>"TombRaider.exe"+00A788F0</Address>
+      <Offsets>
+        <Offset>8</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movss [rax],xmm6</Description>
+      <AddressString>TombRaider.exe+6A1A88</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>BF</Byte>
+        <Byte>70</Byte>
+        <Byte>CC</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups [r8+60],xmm0</Description>
+      <AddressString>TombRaider.exe+26269C</AddressString>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>41</Byte>
+        <Byte>60</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>60</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>49</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rcx+rdx*8],xmm0</Description>
+      <AddressString>TombRaider.exe+267E23</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>04</Byte>
+        <Byte>D1</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>5F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov rcx,r8</Description>
+      <AddressString>VCRUNTIME140.dll+1986</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C2</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>F9</Byte>
+      </Before>
+      <Actual>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>AA</Byte>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>infinitesalvage</Name>
+      <Address>00F7FF1A</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>
