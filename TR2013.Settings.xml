@@ -19,9 +19,9 @@
 			<Setting Id="VLADIMIR!" Label="VLADIMIR!" ToolTip="Splits during the cutscene when Vladimir is dying" State="false"/>
 			<Setting Id="mountain_climb_mountain_climb_to_village_hub_connector" Label="Chimney" ToolTip="Splits right before the climb at the common crash point" State="false"/>
 			<Setting Id="mountain_climb_to_village_hub_connector_vh_main" Label="Mountain Temple" ToolTip="Splits after ascending the narrow mountain shaft, before reuniting with Roth for the first time." State="false"/>
-			<Setting Id="Chimney" Label="Chimney alt" ToolTip="Splits during the cutscene of Roth fighting the wolves" State="false"/>
 		</Setting>
-		<Setting Id="Mountain Village" Label="Mountain Village" ToolTip="Splits for Mountain Village 1" State="false">
+		<Setting Id="Mountain_Village" Label="Mountain Village" ToolTip="Splits for Mountain Village 1" State="false">
+			<Setting Id="Chimney" Label="Chimney alt" ToolTip="Splits during the cutscene of Roth fighting the wolves" State="false"/>
 			<Setting Id="Wolves" Label="Wolves" ToolTip="Splits after you skip the 2nd cutscene with Roth after retrieving the pack from the wolves" State="false"/>
 			<Setting Id="vh_main_vh_vhmain_to_ww2_sos_01_connector" Label="Bridge" ToolTip="Splits after you get past the collapsing bridge" State="false"/>
 			<Setting Id="vh_vhmain_to_ww2_sos_01_connector_ww2_sos_01" Label="Mountain Village" ToolTip="Splits after you current location updates to Base approach" State="false"/>
@@ -36,7 +36,6 @@
 			<Setting Id="Ambush Room" Label="Ambush Room" ToolTip="Splits during the cutscene after opening the door from map room" State="false"/>
 			<Setting Id="ww2sos_map_room_ww2sos_03_to_04_connector" Label="Map room" ToolTip="Splits going into the small gap" State="false"/>
 			<Setting Id="ww2sos_03_to_04_connector_ww2sos_04" Label="Mountain Base" ToolTip="Splits after exiting the Mountain Base into the snowy outside." State="false"/>
-			<Setting Id="SOS" Label="SOS" ToolTip="Splits during the cutscene r the mini game to get the sos signal to work" State="false"/>
 			<Setting Id="ww2sos_04_ww2sos_05" Label="Sos Signal" ToolTip="Splits after a little bit after you leave the SOS tower" State="false"/>
 			<Setting Id="ww2sos_05_slide_of_insanity" Label="Base Exterior" ToolTip="Splits after descending the communications tower and blowing up the fuel tanks." State="false"/>
 		</Setting>
