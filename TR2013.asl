@@ -500,7 +500,7 @@ split
         vars.CompletedSplits.Add("First Skill");
         print("splitted on main if condition for first skill point");
         return true;
-    } else if (current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 8 && old.cutsceneValue == 520 && settings["First Skill"]) // if top fails check this instead
+    } else if (current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 8 && old.cutsceneValue == 520 && current.bowAmmo > 0 && settings["First Skill"]) // if top fails check this instead
     {
         vars.CompletedSplits.Add("First Skill");
         print("splitted on backup if condition for first skill point");
@@ -794,4 +794,3 @@ HashSet<string> PossibleLevelTransitions = new HashSet<string> {
     }
 
 */
-
