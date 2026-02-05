@@ -96,10 +96,10 @@ state("TombRaider", "MS")
     int bowAmmo				: 0x34ECD6C;
     int Ammo                : 0x34ED0C8;
 
-    float XCoord            : 0x, 0x0; //Player X coordinate
+  /*  float XCoord            : 0x, 0x0; //Player X coordinate
     float YCoord            : 0x, 0x4; //Player Y coordinate
     float ZCoord            : 0x, 0x8; //Player Z coordinate
-    string50 version        : 0x; //version string to confirm which version is being played
+    string50 version        : 0x; //version string to confirm which version is being played*/
 }
 
 startup
@@ -794,3 +794,4 @@ HashSet<string> PossibleLevelTransitions = new HashSet<string> {
     }
 
 */
+
