@@ -494,16 +494,16 @@ split
         return true;
     }
 
-    //1st camp
+    //1st skill point
     if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 520 && current.Camp == 0 && old.Camp == 1 && settings["First Skill"])
     {
         vars.CompletedSplits.Add("First Skill");
-		print("splitted on main if condition");
+        print("splitted on main if condition for first skill point");
         return true;
-    } else if (current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 8 && old.cutsceneValue == 520 && settings["First Skill"]) // if top condition fails check this instead
+    } else if (current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 8 && old.cutsceneValue == 520 && settings["First Skill"]) // if top fails check this instead
     {
         vars.CompletedSplits.Add("First Skill");
-		print("splitted on backup if condition");
+        print("splitted on backup if condition for first skill point");
         return true;
     }
 
