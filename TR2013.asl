@@ -4,7 +4,7 @@
    * Updated load remover, autosplitter and settings by Cadarev (@CadarevElry, Discord: Cadarev#8544) with help from Toxic_TT and rythin_sr.
    * Updated for Epic Games Store, latest Steam version, & Microsoft store by TpRedNinja and DeathHound.
  * Thank you to clove for additional testing.
- */
+*/
 
 //build743 case number [17892] 38739968 
 state("TombRaider", "Steam_743.0")
@@ -21,13 +21,19 @@ state("TombRaider", "Steam_743.0")
 	int saveSlot			: 0x0211FEAC, 0xFC, 0x24; //literally the save slot number
 	
 	int GLA                 : 0x2120684; // most of the time its null but eventually changes to -1 when ur close to getting the grenade launcher
-    int bowAmmo				: 0x21203F0; //bowAmmo
-    int Ammo                : 0x2120670; //All ammo's
+    int bowAmmo				: 0x21203F0; // bowAmmo
+    int Ammo                : 0x2120670; // All ammo's
+    int SkillPoints         : 0x212014C, 0x236C; //number of skill points you have
 
-    float XCoord            : 0x00F39E18, 0x0; //Player X coordinate
-    float YCoord            : 0x00F39E18, 0x4; //Player Y coordinate
-    float ZCoord            : 0x00F39E18, 0x8; //Player Z coordinate
-    string50 version        : 0x0211BF60; //version string to confirm which version is being played
+    float XCoord            : 0x00F39E18, 0x0; // Player X coordinate
+    float YCoord            : 0x00F39E18, 0x4; // Player Y coordinate
+    float ZCoord            : 0x00F39E18, 0x8; // Player Z coordinate
+    /*
+    float AltXCoord         : 212014C, 0x230C, 0x0; //Alternative player X coordinate
+    float AltYCoord         : 212014C, 0x230C, 0x4; //Alternative player Y coordinate
+    float AltZCoord         : 212014C, 0x230C, 0x8; //Alternative player Z coordinate
+    */
+    string50 version        : 0x0211BF60; // version string to confirm which version is being played
 }
 
 //[17892] 38543360 
@@ -47,11 +53,12 @@ state("TombRaider", "Steam_Current")
     int GLA                 : 0x20D0014;
     int bowAmmo				: 0x20CFD80; 
     int Ammo                : 0x20D0000;
+    int SkillPoints         : 0x20CFADC, 0x236C;
 
-    float XCoord            : 0x00A788F0, 0x0; //Player X coordinate
-    float YCoord            : 0x00A788F0, 0x4; //Player Y coordinate
-    float ZCoord            : 0x00A788F0, 0x8; //Player Z coordinate
-    string50 version        : 0x0107C898; //version string to confirm which version is being played
+    float XCoord            : 0x00A788F0, 0x0; // Player X coordinate
+    float YCoord            : 0x00A788F0, 0x4; // Player Y coordinate
+    float ZCoord            : 0x00A788F0, 0x8; // Player Z coordinate
+    string50 version        : 0x0107C898; // version string to confirm which version is being played
 }
 
 //epic case number [17892] 38535168 
@@ -71,18 +78,19 @@ state("TombRaider", "Epic")
 	int GLA                 : 0x20CE6E4;
     int bowAmmo				: 0x20CE450;
     int Ammo                : 0x20CE6D0;
+    int SkillPoints         : 0x20CE1AC, 0x236C;
 
-    float XCoord            : 0x00A77660, 0x0; //Player X coordinate
-    float YCoord            : 0x00A77660, 0x4; //Player Y coordinate
-    float ZCoord            : 0x00A77660, 0x8; //Player Z coordinate
-    string50 version        : 0x0107B3D8; //version string to confirm which version is being played
+    float XCoord            : 0x20CE1AC, 0x230C, 0x0; // Player X coordinate
+    float YCoord            : 0x20CE1AC, 0x230C, 0x4; // Player Y coordinate
+    float ZCoord            : 0x20CE1AC, 0x230C, 0x8; // Player Z coordinate
+    string50 version        : 0x0107B3D8; // version string to confirm which version is being played
 }
 
 //MS case number [29008] 60145664 
 state("TombRaider", "MS")
 {
 	bool FMV				: "binkw32.dll", 0x314CC; 
-    int cutsceneValue		: 0x34E4E18; //its very weird first cutscene isn't 712 for whatever reason but final cutscene is.
+    int cutsceneValue		: 0x34E4E18; // its very weird first cutscene isn't 712 for whatever reason but final cutscene is.
     bool isLoading			: 0x23C5A80;
     int Camp                : 0x25F87FC;
 	
@@ -95,11 +103,12 @@ state("TombRaider", "MS")
     int GLA                 : 0x34ED0DC;
     int bowAmmo				: 0x34ECD6C;
     int Ammo                : 0x34ED0C8;
+    int SkillPoints         : 0x34ECA10, 0x2534;
 
-  /*  float XCoord            : 0x, 0x0; //Player X coordinate
-    float YCoord            : 0x, 0x4; //Player Y coordinate
-    float ZCoord            : 0x, 0x8; //Player Z coordinate
-    string50 version        : 0x; //version string to confirm which version is being played*/
+    float XCoord            : 0x34ECA10, 0x2490, 0x0; // Player X coordinate
+    float YCoord            : 0x34ECA10, 0x2490, 0x4; // Player Y coordinate
+    float ZCoord            : 0x34ECA10, 0x2490, 0x8; // Player Z coordinate
+    string50 version        : 0x25F7490; // version string to confirm which version is being played
 }
 
 startup
@@ -110,6 +119,7 @@ startup
     settings.Add("COL", false, "Collectibles");
     settings.SetToolTip("COL", "Collectibles settings, Select this for 100% runs. \nThis will enable the watchers for the collectibles");
     settings.Add("percentage display", false);
+    settings.Add("XYZ display", false);
 
 
     // variables
@@ -223,6 +233,8 @@ startup
 
 init
 {
+    vars.FirstSkill = false;
+    vars.SpentSkillPoints = 0;
     int CollectibleBase = 0x0;
     timer.IsGameTimePaused = false;
     vars.TimerIsGameTimePaused = timer.IsGameTimePaused;
@@ -329,15 +341,22 @@ init
     // make watchers for collectibles
     vars.Watchers = new MemoryWatcherList();
 
-    foreach(var item in vars.Collectibles){
-      foreach(var item2 in item.Value){
-        vars.Watchers.Add(new MemoryWatcher<int>(new DeepPointer(CollectibleBase, item2.Value[0])){Name = item.Key + item2.Key});}}
+    foreach(var item in vars.Collectibles)
+    {
+        foreach(var item2 in item.Value)
+        {
+            vars.Watchers.Add(new MemoryWatcher<int>(new DeepPointer(CollectibleBase, item2.Value[0])){Name = item.Key + item2.Key});
+        }
+    }
 
 }
 
 update
 {
     current.Percentage = Math.Round(current.Percentage, 2);
+    current.X = (float)Math.Round(current.XCoord, 5);
+    current.Y = (float)Math.Round(current.YCoord, 5);
+    current.Z = (float)Math.Round(current.ZCoord, 5);
 
     if(settings["COL"])
     {
@@ -356,6 +375,19 @@ update
         if (current.Percentage != null)
         {
             vars.SetTextComponent("Percentage Completion", current.Percentage + "%");
+        }
+    }
+
+    if (settings["XYZ display"])
+    {
+        vars.SetTextComponent("XYZ", "(" + current.X + ", " + current.Y + ", " + current.Z + ")");
+    }
+
+    if (!vars.FirstSkill)
+    {
+        if (Math.Abs(current.SkillPoints - old.SkillPoints) > 0)
+        {
+            vars.SpentSkillPoints = Math.Abs(current.SkillPoints - old.SkillPoints);
         }
     }
 
@@ -495,15 +527,10 @@ split
     }
 
     //1st skill point
-    if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 520 && current.Camp == 0 && old.Camp == 1 && settings["First Skill"])
+    if(current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && settings["First Skill"] && vars.SpentSkillPoints == 1 && !vars.FirstSkill && current.cutsceneValue == 520)
     {
         vars.CompletedSplits.Add("First Skill");
-        print("splitted on main if condition for first skill point");
-        return true;
-    } else if (current.level == "ac_forest" && !vars.CompletedSplits.Contains("First Skill") && current.cutsceneValue == 8 && old.cutsceneValue == 520 && current.bowAmmo > 0 && settings["First Skill"]) // if top fails check this instead
-    {
-        vars.CompletedSplits.Add("First Skill");
-        print("splitted on backup if condition for first skill point");
+        vars.FirstSkill = true;
         return true;
     }
 
@@ -577,220 +604,6 @@ reset
 onReset
 {
     vars.CompletedSplits.Clear();
+    vars.FirstSkill = false;
+    vars.SpentSkillPoints = 0;
 }
-
-//
-/* 
-"",
-Variable to store all possible level transitions in the game
-HashSet<string> PossibleLevelTransitions = new HashSet<string> {
-"main_menu_1",
-"cine_chaos_beach",
-"survival_den97",
-"survival_den_rambotunnel",
-"survival_den_puzzleroom",
-"survival_den03",
-"survival_den04",
-"oceanvista",
-"ac_forest",
-"ac_bunker",
-"ac_main",
-"connector_acmain_to_mountainclimb_a",
-"mountain_climb",
-"mountain_climb_to_village_hub_connector",
-"vh_main",
-"vh_fisheries_connector", optional tomb
-"ct_batcave", optional tomb
-"vh_main_vh_vhmain_to_ww2_sos_01_connector",
-"ww2_sos_01",
-"ww2_sos_02",
-"ww2sos_03",
-"ww2sos_gas_puzzle",
-"ww2sos_map_room",
-"to_04_connector_ww2sos_04",
-"ww2sos_04",
-"ww2_sos_05",
-"slide_of_insanity",
-"cliffs_of_insanity",
-"vh_cliffs_to_hub_connector_a",
-"vh_cliffs_to_hub_connector_b",
-"ct_windchasm_connect", tomb 
-"ct_windchasm", tomb
-"vh_hub_to_chasm_connector",
-"ch_hubtochasm",
-"chasm_entrance",
-"ma_monastery_interior",
-"ma_chasm_vista",
-"ma_puzzle",
-"ma_run_out",
-"ma_chasm_to_hub_connector",
-"vh_vhmain_to_descent_connector",
-"de_descent",
-"de_descent_to_scav_hub_connector",
-"sh_scavenger_hub",
-"sh_scavenger_hub_to_well_connector", tomb
-"vc_well_outsource", tomb
-"sh_scavenger_hub_2",
-"vc_chopshop_connector", tomb
-"vc_plane_chopshop", tomb
-"sh_scavenger_hub_to_geothermal_connector",
-"bi_entrance",
-"bi_ceremony",
-"bi_pit",
-"bi_catocombs",
-"bi_altar_room",
-"bi_puzzle",
-"bi_exit",
-"ge_01",
-"ge_02",
-"ge_02_a",
-"ge_03",
-"ge_04",
-"ge_05",
-"ge_06",
-"ge_07",
-"ge_08",
-"tt_two_towers",
-"tt_connector_to_rc_01_marsh",
-"rc_01_marsh",
-"rc_15_camp",
-"rc_sidetomb_connector",tomb 
-"ct_fortress_of_solitude", tomb
-"rc_20_wolfden",
-"tb_skub_to_kick_the_bucket",
-"tb_to_beach",
-"tb_to_beach_to_beach_hub_connector",
-"bh_beach_hub",
-"bh_sidetomb_connector_02",tomb
-"vc_shockpond",tomb
-"sb_01",
-"sb_05",
-"sb_15",
-"sb_16",
-"sb_20",
-"sb_21",
-"bh_sidetomb_connector_01", tomb
-"vc_fishery", tomb
-"si_05_bunker_to_research_connector",
-"si_10_research",
-"si_15_elevator",
-"si_20_machinery",
-"si_25_tomb",
-"si_30_tomb_to_bh_connector",
-"bh_beach_hub",
-"ptboat_cine",
-"chasm_entrance",
-"mb_eatery",
-"mb_readyroom",
-"chasm_streamgall_01",
-"mb_candlehall_combat",
-"chasm_streamgall_02",
-"chasm_bridge",
-"qt_pre_stalker_arena",
-"qt_stalkerfight",
-"qt_hall_of_queens",
-"qt_trial_by_fire",
-"qt_scale_the_ziggurat",
-"qt_zig_to_ritual_connector",
-"qt_the_ritual"
-};
-// original if statements
-    // where's alex?
-    if(current.level == "bh_beach_hub" && !vars.CompletedSplits.Contains("Where's Alex") && current.cutsceneValue == 520 && current.Percentage >= 40.14 && settings["Where's Alex"])
-    {
-        vars.CompletedSplits.Add("Where's Alex");
-        return true;
-    }
-
-    //Compound bow
-    if(current.level == "bh_beach_hub" && !vars.CompletedSplits.Contains("Compound bow") && current.cutsceneValue == 520 && current.Percentage >= 42.14 && settings["Compound bow"])
-    {
-        vars.CompletedSplits.Add("Compound bow");
-        return true;
-    }
-
-    //Tools
-    if(current.level == "bh_beach_hub" && !vars.CompletedSplits.Contains("Tools") && current.cutsceneValue == 520 && current.Percentage >= 46.83 && settings["Tools"])
-    {
-        vars.CompletedSplits.Add("Tools");
-        return true;
-    }
-
-    //You know about loss
-    if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Loss") && current.cutsceneValue == 520 && current.Percentage >= 19.72 && settings["Loss"])
-    {
-        vars.CompletedSplits.Add("Loss");
-        return true;
-    }
-
-    //Chimney
-    if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Chimney") && current.cutsceneValue == 520 && current.Percentage >= 8 && settings["Chimney"])
-    {
-        vars.CompletedSplits.Add("Chimney");
-        return true;
-    }
-
-    //Wolves, splits when FMV at campfire ends
-    if(current.level == "vh_main" && !vars.CompletedSplits.Contains("Wolves") && current.cutsceneValue == 521 && old.cutsceneValue != 521 && settings["Wolves"])
-    {
-        vars.CompletedSplits.Add("Wolves");
-        return true;
-    }
-
-    //alex helping lara cutscene for sos
-    if(current.level == "ww2sos_map_room" && !vars.CompletedSplits.Contains("Ambush Room") && current.cutsceneValue == 520 && settings["Ambush Room"])
-    {
-        vars.CompletedSplits.Add("Ambush Room");
-        return true;
-    }
-
-    //Bell Cutscene
-    if(current.level == "ma_puzzle" && !vars.CompletedSplits.Contains("Bell Cutscene") && current.cutsceneValue == 520 && settings["Bell Cutscene"])
-    {
-        vars.CompletedSplits.Add("Bell Cutscene");
-        return true;
-    }
-
-    //Goaliath, Splits when getting rope ascender
-    if (current.level == "sb_15" && !vars.CompletedSplits.Contains("Goaliath") && current.cutsceneValue == 520 && settings["Goaliath"])
-    {
-        vars.CompletedSplits.Add("Goaliath");
-        return true;    
-    }
-
-    //Goaliath, Splits when getting rope ascender
-    if (current.level == "sb_16" && !vars.CompletedSplits.Contains("Mirror") && current.cutsceneValue == 520 && settings["Mirror"])
-    {
-        vars.CompletedSplits.Add("Mirror");
-        return true;    
-    }
-
-    //Alex who?, Splits during alex death cutscene
-    if (current.level == "sb_20" && !vars.CompletedSplits.Contains("Alex who?") && current.cutsceneValue == 520 && settings["Alex who?"])
-    {
-        vars.CompletedSplits.Add("Alex who?");
-        return true;
-    }
-    
-    //Book, Splits during the cutscene when lara picks up the document
-    if (current.level == "sb_05" && !vars.CompletedSplits.Contains("Book") && current.cutsceneValue == 520 && settings["Book"])
-    {
-        vars.CompletedSplits.Add("Book");
-        return true;
-    }
-
-    //Samurai
-    if(current.level == "si_25_tomb" && !vars.CompletedSplits.Contains("Samurai") && current.cutsceneValue == 520 && settings["Samurai"])
-    {
-        vars.CompletedSplits.Add("Samurai");
-        return true;
-    }
-
-    //Final Split
-    if(current.level == "qt_the_ritual" && old.cutsceneValue != 712 && current.cutsceneValue == 712 && settings["Mathias"])
-    {
-        vars.CompletedSplits.Add("Mathias");
-        return true;
-    }
-
-*/
