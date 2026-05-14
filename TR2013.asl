@@ -120,6 +120,8 @@ startup
     settings.SetToolTip("COL", "Collectibles settings, Select this for 100% runs. \nThis will enable the watchers for the collectibles");
     settings.Add("percentage display", false);
     settings.Add("XYZ display", false);
+	settings.Add("OnlyOne", false, "AutoStart only on save 1");
+    settings.SetToolTip("OnlyOne", "Only Starts the timer with the same condition as normal but only when your in the first save to avoid auto start's of when your resetting save 1.");
 
 
     // variables
@@ -399,18 +401,36 @@ update
 
 start
 {
-    // Starts timer when opening Fmv starts (after choosing difficulty)
-    if (old.level != "cine_chaos_beach" && current.level == "cine_chaos_beach" && current.saveSlot >= 1 )
+    if (settings["OnlyOne"])
     {
-        timer.Run.Offset = TimeSpan.FromSeconds(0);
-        return true;
-    }
+        // Starts timer when opening Fmv starts (after choosing difficulty)
+        if (old.level != "cine_chaos_beach" && current.level == "cine_chaos_beach" && current.saveSlot == 1 )
+        {
+            timer.Run.Offset = TimeSpan.FromSeconds(0);
+            return true;
+        }
 
-    // Starts timer when loading the first checkpoint from save slot one and sets the starting time to 1:46.
-    if (old.isLoading && !current.isLoading && current.level == "survival_den97" && current.saveSlot >= 1)
-    { 
-        timer.Run.Offset = TimeSpan.FromSeconds(106);
-        return true;
+        // Starts timer when loading the first checkpoint from save slot one and sets the starting time to 1:46.
+        if (old.isLoading && !current.isLoading && current.level == "survival_den97" && current.saveSlot == 1)
+        { 
+            timer.Run.Offset = TimeSpan.FromSeconds(106);
+            return true;
+        }
+    } else
+    {
+        // Starts timer when opening Fmv starts (after choosing difficulty)
+        if (old.level != "cine_chaos_beach" && current.level == "cine_chaos_beach" && current.saveSlot >= 1 )
+        {
+            timer.Run.Offset = TimeSpan.FromSeconds(0);
+            return true;
+        }
+
+        // Starts timer when loading the first checkpoint from save slot one and sets the starting time to 1:46.
+        if (old.isLoading && !current.isLoading && current.level == "survival_den97" && current.saveSlot >= 1)
+        { 
+            timer.Run.Offset = TimeSpan.FromSeconds(106);
+            return true;
+        }
     }
 
     if (vars.version == "MS")
@@ -428,8 +448,7 @@ start
             timer.Run.Offset = TimeSpan.FromSeconds(106); // 1* 60 + 46 = 106 or 1:46
             return true;
         }
-   }
-
+    }
 }
 
 split
