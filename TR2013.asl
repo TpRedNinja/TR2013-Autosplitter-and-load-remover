@@ -503,10 +503,6 @@ update
         }
     }
 
-    //print("version: " + version);
-    //print(modules.First().ModuleMemorySize.ToString());
-    //print("IsGameTimePaused: " + vars.TimerIsGameTimePaused);
-
 }
 
 start
@@ -642,14 +638,6 @@ split
     {
         if(current.level == split.Item1 && current.cutsceneValue == split.Item3 && current.Percentage >= split.Item4 && !vars.CompletedSplits.Contains(split.Item2) && settings[split.Item2])
         {
-            if (split.Item1 == "bh_beach_hub" && split.Item2 == "Where's Alex")
-            {
-                print("Split: Where's Alex at ");
-            }
-            if (split.Item1 == "bh_beach_hub" && split.Item2 == "Compound bow")
-            {
-                print("Split: Compound bow at ");
-            }
             vars.CompletedSplits.Add(split.Item2);
             return true;
         }
@@ -668,7 +656,6 @@ split
     {
         vars.CompletedSplits.Add("First Skill");
         vars.FirstSkill = true;
-        print("Spent first skill point");
         return true;
     }
 
