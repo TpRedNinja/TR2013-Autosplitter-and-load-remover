@@ -120,13 +120,18 @@ startup
     settings.SetToolTip("COL", "Collectibles settings, Select this for 100% runs. \nThis will enable the watchers for the collectibles");
     settings.Add("percentage display", false);
     settings.Add("XYZ display", false);
-	settings.Add("OnlyOne", false, "AutoStart only on save 1");
+    settings.Add("OnlyOne", false, "AutoStart only on save 1");
     settings.SetToolTip("OnlyOne", "Only Starts the timer with the same condition as normal but only when your in the first save to avoid auto start's of when your resetting save 1.");
-
+    settings.Add("Collectibles Display", false, "Collectibles Display");
+        settings.Add("Gps Display", false, "GPS Display", "Collectibles Display");
+        settings.Add("Map Display", false, "Map Display", "Collectibles Display");
+        settings.Add("Relics Display", false, "Relics Display", "Collectibles Display");
+        settings.Add("Documents Display", false, "Documents Display", "Collectibles Display");
+        settings.Add("Tombs Display", false, "Tombs Display", "Collectibles Display");
 
     // variables
     vars.Collectibles = new Dictionary<string, Dictionary<string, List<int>>>{
-        {"Costal Forest", new Dictionary<string, List<int>>{
+        {"Coastal Forest", new Dictionary<string, List<int>>{
             {"Relics", new List<int>{0x810, 3}},
             {"Documents", new List<int>{0x814, 5}},
             {"GPS", new List<int>{0x828, 5}},
@@ -192,6 +197,20 @@ startup
             {"GPS", new List<int>{0x9E8, 15}}
             }
         },
+        {"CliffSide Bunker", new Dictionary<string, List<int>>{
+            {"Relics", new List<int>{0x650, 3}},
+            {"Documents", new List<int>{0x654, 4}},
+            {"GPS", new List<int>{0x668, 5}},
+            {"Map", new List<int>{0x66C, 1}}
+            }
+        },
+        {"Research Base", new Dictionary<string, List<int>>{
+            {"Relics", new List<int>{0x5E0, 2}},
+            {"Documents", new List<int>{0x5E4, 3}},
+            {"GPS", new List<int>{0x5F8, 3}},
+            {"Map", new List<int>{0x5FC, 1}}
+            }
+        },
         {"Chasm Shrine", new Dictionary<string, List<int>>{
             {"Relics", new List<int>{0x570, 3}},
             {"Documents", new List<int>{0x574, 3}},
@@ -212,25 +231,46 @@ startup
     
     vars.CompletedSplits = new HashSet<string>();
     
-    // set text taken from Poppy Playtime C2
-    // to display the text associated with this script aka current percentage
-    Action<string, string> SetTextComponent = (id, text) => {
-        var textSettings = timer.Layout.Components.Where(x => x.GetType().Name == "TextComponent").Select(x => x.GetType().GetProperty("Settings").GetValue(x, null));
-        var textSetting = textSettings.FirstOrDefault(x => (x.GetType().GetProperty("Text1").GetValue(x, null) as string) == id);
-        if (textSetting == null)
+    //made by ero
+    // TextComponent stuff.
+    var lcCache = new Dictionary<string, LiveSplit.UI.Components.ILayoutComponent>();
+    vars.SetTextComponent = (Action<string, string, object>)((key, text1, text2) =>
+    {
+        LiveSplit.UI.Components.ILayoutComponent lc;
+        if (!lcCache.TryGetValue(key, out lc))
         {
-            var textComponentAssembly = Assembly.LoadFrom("Components\\LiveSplit.Text.dll");
-            var textComponent = Activator.CreateInstance(textComponentAssembly.GetType("LiveSplit.UI.Components.TextComponent"), timer);
-            timer.Layout.LayoutComponents.Add(new LiveSplit.UI.Components.LayoutComponent("LiveSplit.Text.dll", textComponent as LiveSplit.UI.Components.IComponent));
+            lc = timer.Layout.LayoutComponents.Cast<dynamic>()
+                .FirstOrDefault(llc => Path.GetFileName(llc.Path) == "LiveSplit.Text.dll" && llc.Component.Settings.Text1 == text1)
+                ?? LiveSplit.UI.Components.ComponentManager.LoadLayoutComponent("LiveSplit.Text.dll", timer);
 
-            textSetting = textComponent.GetType().GetProperty("Settings", BindingFlags.Instance | BindingFlags.Public).GetValue(textComponent, null);
-            textSetting.GetType().GetProperty("Text1").SetValue(textSetting, id);
+            lcCache.Add(key, lc);
         }
 
-        if (textSetting != null)
-            textSetting.GetType().GetProperty("Text2").SetValue(textSetting, text);
-    };
-    vars.SetTextComponent = SetTextComponent;
+        if (!timer.Layout.LayoutComponents.Contains(lc))
+            timer.Layout.LayoutComponents.Add(lc);
+
+        dynamic tc = lc.Component;
+        tc.Settings.Text1 = text1;
+        tc.Settings.Text2 = text2.ToString();
+    });
+
+    vars.RemoveTextComponent = (Action<string>)(key =>
+    {
+        LiveSplit.UI.Components.ILayoutComponent lc;
+        if (lcCache.TryGetValue(key, out lc))
+        {
+            timer.Layout.LayoutComponents.Remove(lc);
+            lcCache.Remove(key);
+        }
+    });
+
+    vars.RemoveAllTextComponents = (Action)(() =>
+    {
+        foreach (var lc in lcCache.Values)
+            timer.Layout.LayoutComponents.Remove(lc);
+
+        lcCache.Clear();
+    });
 }
 
 init
@@ -240,6 +280,21 @@ init
     int CollectibleBase = 0x0;
     timer.IsGameTimePaused = false;
     vars.TimerIsGameTimePaused = timer.IsGameTimePaused;
+    vars.TotalGpsCollected = 0;
+    vars.TotalGps = 75;
+    vars.TotalMapsCollected = 0;
+    vars.TotalMaps = 14;
+    vars.TotalRelicsCollected = 0;
+    vars.TotalRelics = 42;
+    vars.TotalDocumentsCollected = 0;
+    vars.TotalDocuments = 43;
+    vars.TotalTombsCollected = 0;
+    vars.TotalTombs = 7;
+    vars.GPSNames = new List<string>{};
+    vars.MapsNames = new List<string>{};
+    vars.RelicsNames = new List<string>{};
+    vars.DocumentsNames = new List<string>{};
+    vars.TombsNames = new List<string>{};
 
     switch (modules.First().ModuleMemorySize) { //Detects which version of the game is being played
         default:
@@ -265,7 +320,7 @@ init
     if (version == "MS")
     {
         vars.Collectibles = vars.Collectibles = new Dictionary<string, Dictionary<string, List<int>>>{
-            {"Costal Forest", new Dictionary<string, List<int>>{
+            {"Coastal Forest", new Dictionary<string, List<int>>{
                 {"Relics", new List<int>{0x818, 3}},
                 {"Documents", new List<int>{0x81C, 5}},
                 {"GPS", new List<int>{0x830, 5}},
@@ -331,6 +386,20 @@ init
                 {"GPS", new List<int>{0x9F0, 15}}
                 }
             },
+            /*{"CliffSide Bunker", new Dictionary<string, List<int>>{
+                {"Relics", new List<int>{0x, 3}},
+                {"Documents", new List<int>{0x, 4}},
+                {"GPS", new List<int>{0x, 5}},
+                {"Map", new List<int>{0x, 1}}
+                }
+            },
+            {"Research Base", new Dictionary<string, List<int>>{
+                {"Relics", new List<int>{0x, 2}},
+                {"Documents", new List<int>{0x, 3}},
+                {"GPS", new List<int>{0x, 3}},
+                {"Map", new List<int>{0x, 1}}
+                }
+            },*/
             {"Chasm Shrine", new Dictionary<string, List<int>>{
                 {"Relics", new List<int>{0x578, 3}},
                 {"Documents", new List<int>{0x57C, 3}},
@@ -347,7 +416,31 @@ init
     {
         foreach(var item2 in item.Value)
         {
-            vars.Watchers.Add(new MemoryWatcher<int>(new DeepPointer(CollectibleBase, item2.Value[0])){Name = item.Key + item2.Key});
+            vars.Watchers.Add(new MemoryWatcher<int>(new DeepPointer(CollectibleBase, item2.Value[0])){Name = item.Key + " " + item2.Key});
+        }
+    }
+
+    foreach (var col in vars.Watchers)
+    {
+        if (col.Name.Contains("GPS"))
+        {
+            vars.GPSNames.Add(col.Name);
+        }
+        else if (col.Name.Contains("Map"))
+        {
+            vars.MapsNames.Add(col.Name);
+        }
+        else if (col.Name.Contains("Relics"))
+        {
+            vars.RelicsNames.Add(col.Name);
+        }
+        else if (col.Name.Contains("Documents"))
+        {
+            vars.DocumentsNames.Add(col.Name);
+        }
+        else if (col.Name.Contains("Tombs"))
+        {
+            vars.TombsNames.Add(col.Name);
         }
     }
 
@@ -359,8 +452,29 @@ update
     current.X = (float)Math.Round(current.XCoord, 5);
     current.Y = (float)Math.Round(current.YCoord, 5);
     current.Z = (float)Math.Round(current.ZCoord, 5);
+    vars.TotalGpsCollected = 0;
+    foreach (var name1 in vars.GPSNames)
+        vars.TotalGpsCollected += vars.Watchers[name1].Current;
+    vars.TotalTombsCollected = 0;
+    foreach (var name2 in vars.TombsNames)
+        vars.TotalTombsCollected += vars.Watchers[name2].Current;
+    vars.TotalMapsCollected = 0;
+    foreach (var name3 in vars.MapsNames)
+        vars.TotalMapsCollected += vars.Watchers[name3].Current;
+    vars.TotalRelicsCollected = 0;
+    foreach (var name4 in vars.RelicsNames)
+        vars.TotalRelicsCollected += vars.Watchers[name4].Current;
+    vars.TotalDocumentsCollected = 0;
+    foreach (var name5 in vars.DocumentsNames)
+        vars.TotalDocumentsCollected += vars.Watchers[name5].Current;
 
-    if(settings["COL"])
+    vars.SetTextComponent("GPS display", "GPS: ", vars.TotalGpsCollected + "/" + vars.TotalGps);
+    vars.SetTextComponent("Maps display", "Maps: ", (vars.TotalMapsCollected + vars.TotalTombsCollected) + "/" + vars.TotalMaps);
+    vars.SetTextComponent("Relics display", "Relics: ", vars.TotalRelicsCollected + "/" + vars.TotalRelics);
+    vars.SetTextComponent("Documents display", "Documents: ", vars.TotalDocumentsCollected + "/" + vars.TotalDocuments);
+    vars.SetTextComponent("Tombs display", "Tombs: ", vars.TotalTombsCollected + "/" + vars.TotalTombs);
+
+    if(settings["COL"] || settings["Collectibles Display"])
     {
         vars.Watchers.UpdateAll(game);
     }
@@ -369,21 +483,17 @@ update
     {
         current.level = old.level;
     }
-        
-    if(settings["percentage display"])
+
+    if (current.Percentage != null)
     {
-        
-        vars.SetTextComponent("Percentage Completion", "N/A");
-        if (current.Percentage != null)
-        {
-            vars.SetTextComponent("Percentage Completion", current.Percentage + "%");
-        }
+        vars.SetTextComponent("Percentage display", "Percentage Completion", current.Percentage + "%");
+    } else
+    {
+        vars.RemoveTextComponent("Percentage display");
+        vars.SetTextComponent("Percentage display", "Percentage Completion", "N/A");
     }
 
-    if (settings["XYZ display"])
-    {
-        vars.SetTextComponent("XYZ", "(" + current.X + ", " + current.Y + ", " + current.Z + ")");
-    }
+    vars.SetTextComponent("XYZ display", "XYZ: ", "(" + current.X + ", " + current.Y + ", " + current.Z + ")");
 
     if (!vars.FirstSkill)
     {
@@ -532,6 +642,14 @@ split
     {
         if(current.level == split.Item1 && current.cutsceneValue == split.Item3 && current.Percentage >= split.Item4 && !vars.CompletedSplits.Contains(split.Item2) && settings[split.Item2])
         {
+            if (split.Item1 == "bh_beach_hub" && split.Item2 == "Where's Alex")
+            {
+                print("Split: Where's Alex at ");
+            }
+            if (split.Item1 == "bh_beach_hub" && split.Item2 == "Compound bow")
+            {
+                print("Split: Compound bow at ");
+            }
             vars.CompletedSplits.Add(split.Item2);
             return true;
         }
@@ -550,6 +668,7 @@ split
     {
         vars.CompletedSplits.Add("First Skill");
         vars.FirstSkill = true;
+        print("Spent first skill point");
         return true;
     }
 
