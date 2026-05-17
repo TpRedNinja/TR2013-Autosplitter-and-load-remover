@@ -468,11 +468,15 @@ update
     foreach (var name5 in vars.DocumentsNames)
         vars.TotalDocumentsCollected += vars.Watchers[name5].Current;
 
-    vars.SetTextComponent("GPS display", "GPS: ", vars.TotalGpsCollected + "/" + vars.TotalGps);
-    vars.SetTextComponent("Maps display", "Maps: ", (vars.TotalMapsCollected + vars.TotalTombsCollected) + "/" + vars.TotalMaps);
-    vars.SetTextComponent("Relics display", "Relics: ", vars.TotalRelicsCollected + "/" + vars.TotalRelics);
-    vars.SetTextComponent("Documents display", "Documents: ", vars.TotalDocumentsCollected + "/" + vars.TotalDocuments);
-    vars.SetTextComponent("Tombs display", "Tombs: ", vars.TotalTombsCollected + "/" + vars.TotalTombs);
+    if (settings["Collectibles Display"])
+    {
+        vars.SetTextComponent("GPS display", "GPS: ", vars.TotalGpsCollected + "/" + vars.TotalGps);
+        vars.SetTextComponent("Maps display", "Maps: ", (vars.TotalMapsCollected + vars.TotalTombsCollected) + "/" + vars.TotalMaps);
+        vars.SetTextComponent("Relics display", "Relics: ", vars.TotalRelicsCollected + "/" + vars.TotalRelics);
+        vars.SetTextComponent("Documents display", "Documents: ", vars.TotalDocumentsCollected + "/" + vars.TotalDocuments);
+        vars.SetTextComponent("Tombs display", "Tombs: ", vars.TotalTombsCollected + "/" + vars.TotalTombs);
+    }
+        
 
     if(settings["COL"] || settings["Collectibles Display"])
     {
@@ -492,8 +496,8 @@ update
         vars.RemoveTextComponent("Percentage display");
         vars.SetTextComponent("Percentage display", "Percentage Completion", "N/A");
     }
-
-    vars.SetTextComponent("XYZ display", "XYZ: ", "(" + current.X + ", " + current.Y + ", " + current.Z + ")");
+    if (settings["XYZ display"])
+        vars.SetTextComponent("XYZ display", "XYZ: ", "(" + current.X + ", " + current.Y + ", " + current.Z + ")");
 
     if (!vars.FirstSkill)
     {
@@ -502,7 +506,6 @@ update
             vars.SpentSkillPoints = Math.Abs(current.SkillPoints - old.SkillPoints);
         }
     }
-
 }
 
 start
