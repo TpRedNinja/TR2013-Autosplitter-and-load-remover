@@ -386,20 +386,20 @@ init
                 {"GPS", new List<int>{0x9F0, 15}}
                 }
             },
-            /*{"CliffSide Bunker", new Dictionary<string, List<int>>{
-                {"Relics", new List<int>{0x, 3}},
-                {"Documents", new List<int>{0x, 4}},
-                {"GPS", new List<int>{0x, 5}},
-                {"Map", new List<int>{0x, 1}}
+            {"CliffSide Bunker", new Dictionary<string, List<int>>{
+                {"Relics", new List<int>{0x658, 3}},
+                {"Documents", new List<int>{0x65C, 4}},
+                {"GPS", new List<int>{0x670, 5}},
+                {"Map", new List<int>{0x674, 1}}
                 }
             },
             {"Research Base", new Dictionary<string, List<int>>{
-                {"Relics", new List<int>{0x, 2}},
-                {"Documents", new List<int>{0x, 3}},
-                {"GPS", new List<int>{0x, 3}},
-                {"Map", new List<int>{0x, 1}}
+                {"Relics", new List<int>{0x5E8, 2}},
+                {"Documents", new List<int>{0x5EC, 3}},
+                {"GPS", new List<int>{0x600, 3}},
+                {"Map", new List<int>{0x604, 1}}
                 }
-            },*/
+            },
             {"Chasm Shrine", new Dictionary<string, List<int>>{
                 {"Relics", new List<int>{0x578, 3}},
                 {"Documents", new List<int>{0x57C, 3}},
