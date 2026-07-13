@@ -488,14 +488,11 @@ update
         current.level = old.level;
     }
 
-    if (current.Percentage != null)
+    if (current.Percentage != null && settings["percentage display"])
     {
         vars.SetTextComponent("Percentage display", "Percentage Completion", current.Percentage + "%");
-    } else
-    {
-        vars.RemoveTextComponent("Percentage display");
-        vars.SetTextComponent("Percentage display", "Percentage Completion", "N/A");
     }
+
     if (settings["XYZ display"])
         vars.SetTextComponent("XYZ display", "XYZ: ", "(" + current.X + ", " + current.Y + ", " + current.Z + ")");
 
