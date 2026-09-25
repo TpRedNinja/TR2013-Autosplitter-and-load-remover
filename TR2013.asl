@@ -114,11 +114,10 @@ startup
 {
     // load in xml file for settings as well as asl-help and making manual settings
     Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
-    vars.Helper.Settings.CreateFromXml("C:/Users/jjdom/OneDrive/Desktop/notes/TR2013.Settings(new).xml");
+    vars.Helper.Settings.CreateFromXml("Components/TR2013.Settings.xml");
     settings.Add("COL", false, "Collectibles");
     settings.SetToolTip("COL", "Collectibles settings, Select this for 100% runs. \nThis will enable the watchers for the collectibles");
     settings.Add("percentage display", false);
-    settings.Add("Calculator", false, "Calculator");
     settings.Add("XYZ display", false);
     settings.Add("OnlyOne", false, "AutoStart only on save 1");
     settings.SetToolTip("OnlyOne", "Only Starts the timer with the same condition as normal but only when your in the first save to avoid auto start's of when your resetting save 1.");
@@ -295,7 +294,6 @@ init
     vars.RelicsNames = new List<string>{};
     vars.DocumentsNames = new List<string>{};
     vars.TombsNames = new List<string>{};
-    vars.percentageDiff = 0.0f;
 
     switch (modules.First().ModuleMemorySize) { //Detects which version of the game is being played
         default:
@@ -488,24 +486,12 @@ update
     {
         current.level = old.level;
     }
-    
-
-    if (settings["Calculator"])
-    {
-        current.Percentage = Math.Round(current.Percentage, 2);
-        old.Percentage = Math.Round(old.Percentage, 2);
-        if (current.Percentage != old.Percentage)
-        {
-            vars.percentageDiff = Math.Abs(current.Percentage - old.Percentage);
-            print("Percentage Difference: " + vars.percentageDiff + "%");
-        }
-        vars.SetTextComponent("Calculator", "Percentage Difference: ", vars.percentageDiff + "%");
-    }
 
     if (current.Percentage != null && settings["percentage display"])
     {
         vars.SetTextComponent("Percentage display", "Percentage Completion", current.Percentage + "%");
     }
+
     if (settings["XYZ display"])
         vars.SetTextComponent("XYZ display", "XYZ: ", "(" + current.X + ", " + current.Y + ", " + current.Z + ")");
 
@@ -516,11 +502,6 @@ update
             vars.SpentSkillPoints = Math.Abs(current.SkillPoints - old.SkillPoints);
         }
     }
-
-    //print("version: " + version);
-    //print(modules.First().ModuleMemorySize.ToString());
-    //print("IsGameTimePaused: " + vars.TimerIsGameTimePaused);
-
 }
 
 start
@@ -573,8 +554,6 @@ start
             return true;
         }
     }
-
-    //print("Cutscene value changed from " + old.cutsceneValue + " to " + current.cutsceneValue);
 }
 
 split
@@ -658,14 +637,6 @@ split
     {
         if(current.level == split.Item1 && current.cutsceneValue == split.Item3 && current.Percentage >= split.Item4 && !vars.CompletedSplits.Contains(split.Item2) && settings[split.Item2])
         {
-            if (split.Item1 == "bh_beach_hub" && split.Item2 == "Where's Alex")
-            {
-                print("Split: Where's Alex at ");
-            }
-            if (split.Item1 == "bh_beach_hub" && split.Item2 == "Compound bow")
-            {
-                print("Split: Compound bow at ");
-            }
             vars.CompletedSplits.Add(split.Item2);
             return true;
         }
@@ -684,7 +655,6 @@ split
     {
         vars.CompletedSplits.Add("First Skill");
         vars.FirstSkill = true;
-        print("Spent first skill point");
         return true;
     }
 
