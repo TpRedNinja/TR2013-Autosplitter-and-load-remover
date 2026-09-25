@@ -25,15 +25,11 @@ state("TombRaider", "Steam_743.0")
     int Ammo                : 0x2120670; // All ammo's
     int SkillPoints         : 0x212014C, 0x236C; //number of skill points you have
 
-    float XCoord            : 0x00F39E18, 0x0; // Player X coordinate
-    float YCoord            : 0x00F39E18, 0x4; // Player Y coordinate
-    float ZCoord            : 0x00F39E18, 0x8; // Player Z coordinate
-    /*
-    float AltXCoord         : 212014C, 0x230C, 0x0; //Alternative player X coordinate
-    float AltYCoord         : 212014C, 0x230C, 0x4; //Alternative player Y coordinate
-    float AltZCoord         : 212014C, 0x230C, 0x8; //Alternative player Z coordinate
-    */
+    float XCoord            : 0x212014C, 0x230C, 0x0; //Player X coordinate
+    float YCoord            : 0x212014C, 0x230C, 0x4; //Player Y coordinate
+    float ZCoord            : 0x212014C, 0x230C, 0x8; //Player Z coordinate
     string50 version        : 0x0211BF60; // version string to confirm which version is being played
+    long alive              : 0xEFBBB4; // a 8 byte value constantly changing value when the game is active. It will go to 0/null/ equal it self if the game crashes
 }
 
 //[17892] 38543360 
@@ -55,10 +51,11 @@ state("TombRaider", "Steam_Current")
     int Ammo                : 0x20D0000;
     int SkillPoints         : 0x20CFADC, 0x236C;
 
-    float XCoord            : 0x00A788F0, 0x0; // Player X coordinate
-    float YCoord            : 0x00A788F0, 0x4; // Player Y coordinate
-    float ZCoord            : 0x00A788F0, 0x8; // Player Z coordinate
+    float XCoord            : 0x20CFADC, 0x230C, 0x0; // Player X coordinate
+    float YCoord            : 0x20CFADC, 0x230C, 0x4; // Player Y coordinate
+    float ZCoord            : 0x20CFADC, 0x230C, 0x8; // Player Z coordinate
     string50 version        : 0x0107C898; // version string to confirm which version is being played
+    long alive              : 0xE7C66C;
 }
 
 //epic case number [17892] 38535168 
@@ -84,6 +81,7 @@ state("TombRaider", "Epic")
     float YCoord            : 0x20CE1AC, 0x230C, 0x4; // Player Y coordinate
     float ZCoord            : 0x20CE1AC, 0x230C, 0x8; // Player Z coordinate
     string50 version        : 0x0107B3D8; // version string to confirm which version is being played
+    //long alive              : 0x
 }
 
 //MS case number [29008] 60145664 
@@ -109,16 +107,18 @@ state("TombRaider", "MS")
     float YCoord            : 0x34ECA10, 0x2490, 0x4; // Player Y coordinate
     float ZCoord            : 0x34ECA10, 0x2490, 0x8; // Player Z coordinate
     string50 version        : 0x25F7490; // version string to confirm which version is being played
+    //long alive              : 0x
 }
 
 startup
 {
     // load in xml file for settings as well as asl-help and making manual settings
     Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
-    vars.Helper.Settings.CreateFromXml("Components/TR2013.Settings.xml");
+    vars.Helper.Settings.CreateFromXml("C:/Users/jjdom/OneDrive/Desktop/notes/TR2013.Settings(new).xml");
     settings.Add("COL", false, "Collectibles");
     settings.SetToolTip("COL", "Collectibles settings, Select this for 100% runs. \nThis will enable the watchers for the collectibles");
     settings.Add("percentage display", false);
+    settings.Add("Calculator", false, "Calculator");
     settings.Add("XYZ display", false);
     settings.Add("OnlyOne", false, "AutoStart only on save 1");
     settings.SetToolTip("OnlyOne", "Only Starts the timer with the same condition as normal but only when your in the first save to avoid auto start's of when your resetting save 1.");
@@ -295,6 +295,7 @@ init
     vars.RelicsNames = new List<string>{};
     vars.DocumentsNames = new List<string>{};
     vars.TombsNames = new List<string>{};
+    vars.percentageDiff = 0.0f;
 
     switch (modules.First().ModuleMemorySize) { //Detects which version of the game is being played
         default:
@@ -487,12 +488,24 @@ update
     {
         current.level = old.level;
     }
+    
+
+    if (settings["Calculator"])
+    {
+        current.Percentage = Math.Round(current.Percentage, 2);
+        old.Percentage = Math.Round(old.Percentage, 2);
+        if (current.Percentage != old.Percentage)
+        {
+            vars.percentageDiff = Math.Abs(current.Percentage - old.Percentage);
+            print("Percentage Difference: " + vars.percentageDiff + "%");
+        }
+        vars.SetTextComponent("Calculator", "Percentage Difference: ", vars.percentageDiff + "%");
+    }
 
     if (current.Percentage != null && settings["percentage display"])
     {
         vars.SetTextComponent("Percentage display", "Percentage Completion", current.Percentage + "%");
     }
-
     if (settings["XYZ display"])
         vars.SetTextComponent("XYZ display", "XYZ: ", "(" + current.X + ", " + current.Y + ", " + current.Z + ")");
 
@@ -503,6 +516,11 @@ update
             vars.SpentSkillPoints = Math.Abs(current.SkillPoints - old.SkillPoints);
         }
     }
+
+    //print("version: " + version);
+    //print(modules.First().ModuleMemorySize.ToString());
+    //print("IsGameTimePaused: " + vars.TimerIsGameTimePaused);
+
 }
 
 start
@@ -555,6 +573,8 @@ start
             return true;
         }
     }
+
+    //print("Cutscene value changed from " + old.cutsceneValue + " to " + current.cutsceneValue);
 }
 
 split
@@ -638,6 +658,14 @@ split
     {
         if(current.level == split.Item1 && current.cutsceneValue == split.Item3 && current.Percentage >= split.Item4 && !vars.CompletedSplits.Contains(split.Item2) && settings[split.Item2])
         {
+            if (split.Item1 == "bh_beach_hub" && split.Item2 == "Where's Alex")
+            {
+                print("Split: Where's Alex at ");
+            }
+            if (split.Item1 == "bh_beach_hub" && split.Item2 == "Compound bow")
+            {
+                print("Split: Compound bow at ");
+            }
             vars.CompletedSplits.Add(split.Item2);
             return true;
         }
@@ -656,6 +684,7 @@ split
     {
         vars.CompletedSplits.Add("First Skill");
         vars.FirstSkill = true;
+        print("Spent first skill point");
         return true;
     }
 
